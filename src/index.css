@@ -46,6 +46,26 @@ h1 {
   flex: 1;
   padding: 15px;
   max-height: 25vh;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: space-between;
+}
+.note {
+  background-color: #7b7a8a;
+  color: white;
+  border-radius: 4px;
+  padding: 6px 15px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.icon-edit {
+  margin-left: auto;
+  color: #3f3c52;
+}
+.icon-trash {
+  color: rgb(230 0 0 / 84%);
 }
 .folders {
   color: #b5b4c7;
