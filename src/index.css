@@ -33,6 +33,12 @@ h1 {
   letter-spacing: 2px;
 }
 
+.slide-up-left {
+  transform: translate(-69px, -210px);
+}
+.slide-up-right {
+  transform: translate(69px, -210px);
+}
 .slide-in {
   transform: translateX(0) !important;
 }
@@ -192,4 +198,9 @@ textarea {
   border-radius: 50%;
   color: #e8e8ec;
   align-self: center;
+
+  z-index: 10;
+  transition: all 0.5s cubic-bezier(0.1, 0.4, 0.44, 1.28);
+}
+.btn-folder {
 }

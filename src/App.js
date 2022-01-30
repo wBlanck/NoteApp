@@ -11,12 +11,15 @@ function App() {
   const { modalContent, setModalContent } = useContext(AppContext);
   const addNote = () => {
     document.querySelector(".modal").classList.value = "modal slide-in";
+    document.querySelector(".btn-note").classList.value = "btn slide-up-right";
 
     setModalContent("addnote");
   };
   const addFolder = () => {
     document.querySelector(".modal").classList.value =
       "modal slide-in flex-center";
+
+    document.querySelector(".btn-folder").classList.value = "btn slide-up-left";
 
     setModalContent("addfolder");
   };
@@ -27,10 +30,10 @@ function App() {
       <Folders />
       <SearchBar />
       <div className="buttons">
-        <Button handleClick={addNote}>
+        <Button handleClick={addNote} className="btn-note">
           <AiFillFileAdd />
         </Button>
-        <Button handleClick={addFolder}>
+        <Button handleClick={addFolder} className="btn-folder">
           <AiFillFolderAdd style={{ color: "#e0a743" }} />
         </Button>
       </div>
