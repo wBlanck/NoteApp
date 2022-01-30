@@ -30,6 +30,7 @@ body {
 h1 {
   color: #e0a743;
   margin-bottom: 50px;
+  letter-spacing: 2px;
 }
 
 .slide-in {
@@ -68,7 +69,7 @@ h1 {
   position: absolute;
   background-color: #3f3c52;
   height: 52vh;
-  width: 92%;
+  width: calc(100% - 30px);
   top: 73px;
   transform: translateX(120%);
   border-radius: 4px;
@@ -96,7 +97,6 @@ textarea {
   color: #b5b4c7;
   background-color: #3f3c52;
   border-radius: 4px;
-  /* flex: 1; */
   padding: 15px;
   max-height: 25vh;
   display: flex;
@@ -104,12 +104,13 @@ textarea {
   gap: 10px;
   position: relative;
 }
-.featured-notes::before {
+/* .featured-notes::before {
   content: "Featured Notes";
   position: absolute;
   top: -20px;
   font-size: 1.4rem;
-}
+  letter-spacing: 2px;
+} */
 .note {
   background-color: #6f6fc8;
   color: #e8e8ec;
@@ -143,12 +144,13 @@ textarea {
   padding: 15px;
   max-height: 25vh;
 }
-.folders::before {
+/* .folders::before {
   content: "Folders";
   position: absolute;
   top: -20px;
   font-size: 1.4rem;
-}
+  letter-spacing: 2px;
+} */
 .folder {
   display: flex;
   flex-direction: column;
