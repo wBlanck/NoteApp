@@ -68,6 +68,10 @@ h1 {
   color: rgb(230 0 0 / 84%);
 }
 .folders {
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+  flex-wrap: wrap;
   color: #b5b4c7;
   background-color: #3f3c52;
   flex: 1;
@@ -75,7 +79,18 @@ h1 {
   padding: 15px;
   max-height: 25vh;
 }
-
+.folder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.folder .icon {
+  font-size: 1.7rem;
+  color: #e0a743;
+}
+.folder .title {
+}
 .search-bar {
   background-color: #3f3c52;
   border: none;
