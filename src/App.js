@@ -31,7 +31,7 @@ function App() {
           <AiFillFileAdd />
         </Button>
         <Button handleClick={addFolder}>
-          <AiFillFolderAdd />
+          <AiFillFolderAdd style={{ color: "#e0a743" }} />
         </Button>
       </div>
       <Modal modalContent={modalContent} />

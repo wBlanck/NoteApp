@@ -146,6 +146,7 @@ textarea {
   border: none;
   border-radius: 25px;
   padding: 10px 15px;
+  color: #b5b4c7;
 }
 .search-bar::placeholder {
   color: #b5b4c7;
@@ -156,6 +157,9 @@ textarea {
   margin-top: 35px;
 }
 .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 60px;
   width: 60px;
   font-size: 2rem;

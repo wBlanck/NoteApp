@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-import { BsFillTrashFill, BsFolderFill } from "react-icons/bs";
-import { AiOutlineEdit } from "react-icons/ai";
+import { BsFillTrashFill } from "react-icons/bs";
+import { AiFillFolder } from "react-icons/ai";
+import { RiFileEditLine } from "react-icons/ri";
 import AppContext from "../context/AppContext";
 
 function Note() {
@@ -23,8 +24,8 @@ function Note() {
   return (
     <div className="note">
       Note
-      <BsFolderFill className="icon-folder" onClick={changeFolder} />
-      <AiOutlineEdit className="icon-edit" onClick={editNote} />
+      <AiFillFolder className="icon-folder" onClick={changeFolder} />
+      <RiFileEditLine className="icon-edit" onClick={editNote} />
       <BsFillTrashFill className="icon-trash" onClick={deleteNote} />
     </div>
   );

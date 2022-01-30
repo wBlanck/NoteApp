@@ -1,5 +1,6 @@
 import React from "react";
-import { AiFillFolderAdd } from "react-icons/ai";
+import { AiOutlineCheck } from "react-icons/ai";
+import { BsFillTrashFill } from "react-icons/bs";
 
 import Button from "./Button";
 import Folders from "./Folders";
@@ -25,7 +26,9 @@ function Modal({ modalContent }) {
           <h2>Move Note to</h2>
           <Note />
           <Folders />
-          <Button>Move Note</Button>
+          <Button>
+            <AiOutlineCheck />
+          </Button>
         </>
       );
       break;
@@ -66,8 +69,12 @@ function Modal({ modalContent }) {
         <>
           <h1>Delete Note?</h1>
           <div className="buttons">
-            <Button>Yes</Button>
-            <Button>No</Button>
+            <Button>
+              <AiOutlineCheck />
+            </Button>
+            <Button>
+              <BsFillTrashFill className="icon-trash" />
+            </Button>
           </div>
         </>
       );

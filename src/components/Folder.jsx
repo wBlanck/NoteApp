@@ -1,10 +1,10 @@
 import React from "react";
-import { BsFolderFill } from "react-icons/bs";
+import { AiFillFolder } from "react-icons/ai";
 
 function Folder() {
   return (
     <div className="folder">
-      <BsFolderFill className="icon" />
+      <AiFillFolder className="icon" />
       <span className="title">Study</span>
     </div>
   );
