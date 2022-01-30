@@ -30,6 +30,10 @@ h1 {
   color: #e0a743;
 }
 
+.slide-in {
+  transform: translateX(0) !important;
+}
+
 .app-container {
   background-color: #1f1d2b;
   height: 100vh;
@@ -38,6 +42,7 @@ h1 {
   gap: 15px;
   padding: 15px;
   position: relative;
+  overflow: hidden;
 }
 .modal {
   display: flex;
@@ -48,8 +53,10 @@ h1 {
   height: 52vh;
   width: 92%;
   top: 73px;
+  transform: translateX(120%);
   border-radius: 4px;
   padding: 15px;
+  transition: all 0.5s cubic-bezier(0.1, 0.4, 0.44, 1.28);
 }
 .featured-notes {
   color: #b5b4c7;
