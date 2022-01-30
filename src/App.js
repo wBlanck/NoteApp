@@ -1,6 +1,7 @@
 import Button from "./components/Button";
 import FeaturedNotes from "./components/FeaturedNotes";
 import Folders from "./components/Folders";
+import Modal from "./components/Modal";
 import SearchBar from "./components/SearchBar";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Button>Add Note</Button>
         <Button>Add Folder</Button>
       </div>
+      <Modal />
     </div>
   );
 }
