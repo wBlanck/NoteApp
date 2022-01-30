@@ -29,6 +29,7 @@ body {
 
 h1 {
   color: #e0a743;
+  margin-bottom: 50px;
 }
 
 .slide-in {
@@ -91,7 +92,7 @@ textarea {
   color: #b5b4c7;
   background-color: #3f3c52;
   border-radius: 4px;
-  flex: 1;
+  /* flex: 1; */
   padding: 15px;
   max-height: 25vh;
   display: flex;
@@ -99,7 +100,7 @@ textarea {
   gap: 10px;
 }
 .note {
-  background-color: #7b7a8a;
+  background-color: #6f6fc8;
   color: #e8e8ec;
   border-radius: 4px;
   padding: 6px 15px;
@@ -142,14 +143,14 @@ textarea {
 .folder .title {
 }
 .search-bar {
-  background-color: #3f3c52;
+  background-color: #6f6fc8;
   border: none;
   border-radius: 25px;
   padding: 10px 15px;
   color: #b5b4c7;
 }
 .search-bar::placeholder {
-  color: #b5b4c7;
+  color: #e8e8ec;
 }
 .buttons {
   display: flex;
