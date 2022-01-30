@@ -5,17 +5,27 @@ import AppContext from "../context/AppContext";
 
 function Note() {
   const { setModalContent } = useContext(AppContext);
+
   const changeFolder = () => {
-    const modal = document.querySelector(".modal");
-    modal.classList.add("slide-in");
+    document.querySelector(".modal").classList.value =
+      "modal slide-in changefolder";
     setModalContent("changefolder");
   };
+  const editNote = () => {
+    document.querySelector(".modal").classList.value = "modal slide-in edit";
+    setModalContent("edit");
+  };
+  const deleteNote = () => {
+    document.querySelector(".modal").classList.value = "modal slide-in delete";
+    setModalContent("delete");
+  };
+
   return (
     <div className="note">
       Note
       <BsFolderFill className="icon-folder" onClick={changeFolder} />
-      <AiOutlineEdit className="icon-edit" />
-      <BsFillTrashFill className="icon-trash" />
+      <AiOutlineEdit className="icon-edit" onClick={editNote} />
+      <BsFillTrashFill className="icon-trash" onClick={deleteNote} />
     </div>
   );
 }

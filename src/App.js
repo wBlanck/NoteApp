@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { AiFillFileAdd, AiFillFolderAdd } from "react-icons/ai";
 import Button from "./components/Button";
 import FeaturedNotes from "./components/FeaturedNotes";
 import Folders from "./components/Folders";
@@ -7,7 +8,18 @@ import SearchBar from "./components/SearchBar";
 import AppContext from "./context/AppContext";
 
 function App() {
-  const { modalContent } = useContext(AppContext);
+  const { modalContent, setModalContent } = useContext(AppContext);
+  const addNote = () => {
+    document.querySelector(".modal").classList.value = "modal slide-in";
+
+    setModalContent("addnote");
+  };
+  const addFolder = () => {
+    document.querySelector(".modal").classList.value =
+      "modal slide-in flex-center";
+
+    setModalContent("addfolder");
+  };
   return (
     <div className="app-container">
       <h1>Notes</h1>
@@ -15,8 +27,12 @@ function App() {
       <Folders />
       <SearchBar />
       <div className="buttons">
-        <Button>Add Note</Button>
-        <Button>Add Folder</Button>
+        <Button handleClick={addNote}>
+          <AiFillFileAdd />
+        </Button>
+        <Button handleClick={addFolder}>
+          <AiFillFolderAdd />
+        </Button>
       </div>
       <Modal modalContent={modalContent} />
     </div>

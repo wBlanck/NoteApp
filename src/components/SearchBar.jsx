@@ -5,8 +5,8 @@ function SearchBar() {
   const { setModalContent } = useContext(AppContext);
 
   const slide = () => {
-    const modal = document.querySelector(".modal");
-    modal.classList.add("slide-in");
+    document.querySelector(".modal").classList.value =
+      "modal slide-in flex-start";
     setModalContent("search");
   };
 
