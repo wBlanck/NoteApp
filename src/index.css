@@ -100,6 +100,11 @@ h1 {
 .search-bar::placeholder {
   color: #b5b4c7;
 }
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 35px;
+}
 .btn {
   padding: 10px 25px;
   background-color: #3f3c52;

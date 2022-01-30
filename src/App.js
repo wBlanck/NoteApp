@@ -10,7 +10,10 @@ function App() {
       <FeaturedNotes />
       <Folders />
       <SearchBar />
-      <Button />
+      <div className="buttons">
+        <Button>Add Note</Button>
+        <Button>Add Folder</Button>
+      </div>
     </div>
   );
 }
