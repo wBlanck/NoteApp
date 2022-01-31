@@ -1,7 +1,7 @@
 import "./Modal.scss";
 import { AiOutlineCheck, AiOutlinePlus } from "react-icons/ai";
 import { BsFillTrashFill } from "react-icons/bs";
-
+import { AiFillFolder } from "react-icons/ai";
 import Button from "../Button/Button";
 import Folders from "../Folders/Folders";
 import Note from "../Note/Note";
@@ -57,11 +57,27 @@ function Modal({ modalContent }) {
     case "addfolder":
       content = (
         <>
-          <input
-            type="text"
-            placeholder="Folder name..."
-            className="input-folder center"
-          />
+          <h1>Add Folder</h1>
+          <div className="wrapper bg text-center">
+            <h2>Folder Color</h2>
+            <div className="folder-colors">
+              <AiFillFolder className="green" />
+              <AiFillFolder className="blue" />
+              <AiFillFolder className="pink" />
+              <AiFillFolder className="yellow" />
+              <AiFillFolder className="black" />
+              <AiFillFolder className="aqua" />
+              <AiFillFolder className="orange" />
+              <AiFillFolder className="gray" />
+            </div>
+            <Input className="text-center" placeholder="Folder Name" />
+            <Button type="add">
+              <AiOutlinePlus />
+            </Button>
+            <Button type="remove">
+              <AiOutlinePlus />
+            </Button>
+          </div>
         </>
       );
       break;

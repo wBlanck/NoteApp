@@ -56,13 +56,10 @@ h1 {
 .flex-center {
   justify-content: center !important;
 }
+.text-center {
+  text-align: center !important;
+}
 
-.input-folder {
-  text-align: center;
-}
-.input-folder::placeholder {
-  text-align: center;
-}
 .app-container {
   background-color: #1f1d2b;
   height: 100vh;
