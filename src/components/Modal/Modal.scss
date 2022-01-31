@@ -1,25 +1,22 @@
 .modal {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  gap: 10px;
+
+  gap: 19px;
 
   position: absolute;
-  background-color: #1f1d2b;
+
   height: 100vh;
   width: 100%;
   top: 0;
   transform: translateX(120%);
   padding: 15px;
   transition: all 0.5s;
-
-  textarea {
-    background: none;
-    border: none;
-  }
-
-  textarea {
-    height: 100%;
-    color: white;
-  }
+}
+.wrapper {
+  position: relative;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
 }

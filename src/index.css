@@ -29,14 +29,13 @@ body {
 
 h1 {
   color: #e0a743;
-
   letter-spacing: 2px;
 }
 
 #root {
   position: relative;
   overflow: hidden;
-  background-color: #3f3c52;
+  background-color: #1f1d2b;
 }
 
 .slide-up-left {

@@ -1,5 +1,5 @@
 import "./Modal.scss";
-import { AiOutlineCheck } from "react-icons/ai";
+import { AiOutlineCheck, AiOutlinePlus } from "react-icons/ai";
 import { BsFillTrashFill } from "react-icons/bs";
 
 import Button from "../Button/Button";
@@ -35,7 +35,7 @@ function Modal({ modalContent }) {
       break;
     case "addnote":
       content = (
-        <>
+        <div className="wrapper">
           <h1>Add Note</h1>
 
           <Input type="text" placeholder="Title" />
@@ -45,7 +45,10 @@ function Modal({ modalContent }) {
             cols="30"
             rows="10"
             placeholder="Notes..."></textarea>
-        </>
+          <Button>
+            <AiOutlinePlus />
+          </Button>
+        </div>
       );
       break;
     case "addfolder":
