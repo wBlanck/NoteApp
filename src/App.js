@@ -23,14 +23,15 @@ function App() {
     setModalContent("addfolder");
   };
   return (
-    <div className="app-container">
-      <h1>Notes</h1>
-      <Notes />
-      <Folders />
-      <SearchBar />
-
+    <>
+      <div className="app-container">
+        <h1>Notes</h1>
+        <Notes />
+        <Folders />
+        <SearchBar />
+      </div>
       <Modal modalContent={modalContent} />
-    </div>
+    </>
   );
 }
 
