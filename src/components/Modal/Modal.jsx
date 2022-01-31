@@ -48,7 +48,7 @@ function Modal({ modalContent }) {
           <Button type="add">
             <AiOutlinePlus />
           </Button>
-          <Button type="remove">
+          <Button type="close">
             <AiOutlinePlus />
           </Button>
         </div>
@@ -74,7 +74,7 @@ function Modal({ modalContent }) {
             <Button type="add">
               <AiOutlinePlus />
             </Button>
-            <Button type="remove">
+            <Button type="close">
               <AiOutlinePlus />
             </Button>
           </div>
