@@ -36,6 +36,7 @@ h1 {
 #root {
   position: relative;
   overflow: hidden;
+  background-color: #3f3c52;
 }
 
 .slide-up-left {
@@ -47,14 +48,16 @@ h1 {
 .slide-in {
   transform: translateX(0) !important;
 }
+.slide-out {
+  transform: translateX(-100%);
+}
 .flex-start {
   justify-content: flex-start !important;
 }
 .flex-center {
   justify-content: center !important;
 }
-.changefolder {
-}
+
 .input-folder {
   text-align: center;
 }
@@ -69,67 +72,7 @@ h1 {
   gap: 30px;
   padding: 15px;
   position: relative;
-}
-.modal {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  gap: 10px;
-  text-align: center;
-  position: absolute;
-  background-color: #3f3c52;
-  height: 100vh;
-  width: 100%;
-  top: 0;
-  transform: translateX(120%);
-  padding: 15px;
-  transition: all 0.5s ease-in-out;
-}
-.modal input,
-textarea {
-  background: none;
-  border: none;
-}
-.modal input {
-  color: #e0a743;
-  font-size: 1.5rem;
-  align-self: center;
-  border: 2px solid #6f6fc8;
-  border-radius: 25px;
-  padding: 5px 0;
-}
-.modal textarea {
-  height: 100%;
-  color: white;
-}
-.notes {
-  color: #b5b4c7;
-  background-color: #3f3c52;
-  border-radius: 4px;
-  padding: 15px;
-  min-height: 150px;
-  max-height: 30vh;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  position: relative;
-}
-/* .featured-notes::before {
-  content: "Featured Notes";
-  position: absolute;
-  top: -20px;
-  font-size: 1.4rem;
-  letter-spacing: 2px;
-} */
-.note {
-  background-color: #6f6fc8;
-  color: #e8e8ec;
-  border-radius: 4px;
-  padding: 6px 15px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
+  transition: all 0.5s;
 }
 
 .icon-folder {
@@ -141,73 +84,4 @@ textarea {
 }
 .icon-trash {
   color: rgb(230 0 0 / 84%);
-}
-.folders {
-  position: relative;
-  display: flex;
-  gap: 25px;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  color: #b5b4c7;
-  background-color: #3f3c52;
-  flex: 1;
-  border-radius: 4px;
-  padding: 15px;
-  max-height: 30vh;
-  min-height: 150px;
-}
-/* .folders::before {
-  content: "Folders";
-  position: absolute;
-  top: -20px;
-  font-size: 1.4rem;
-  letter-spacing: 2px;
-} */
-.folder {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.folder .icon {
-  font-size: 2.5rem;
-  color: #e0a743;
-}
-.folder .title {
-}
-.search-bar {
-  background-color: #6f6fc8;
-  border: none;
-  border-radius: 25px;
-  padding: 10px 15px;
-  color: #b5b4c7;
-}
-.search-bar::placeholder {
-  color: #e8e8ec;
-}
-.buttons {
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 35px;
-}
-.btn {
-  background-color: #7b7a8a;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  padding: 4px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 60px;
-  width: 60px;
-  clip-path: polygon(100% 0, 0 100%, 100% 100%);
-  font-size: 1.5rem;
-  border: none;
-  border-bottom-right-radius: 4px;
-}
-.btn svg {
-  color: #f6f6ff;
-}
-.btn-folder {
 }

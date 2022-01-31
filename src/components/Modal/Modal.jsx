@@ -1,10 +1,10 @@
-import React from "react";
+import "./Modal.scss";
 import { AiOutlineCheck } from "react-icons/ai";
 import { BsFillTrashFill } from "react-icons/bs";
 
-import Button from "./Button";
-import Folders from "./Folders";
-import Note from "./Note";
+import Button from "../Button/Button";
+import Folders from "../Folders/Folders";
+import Note from "../Note/Note";
 
 function Modal({ modalContent }) {
   let content;

@@ -1,7 +1,7 @@
-import React from "react";
+import "./Folders.scss";
 import { AiOutlinePlus } from "react-icons/ai";
-import Button from "./Button";
-import Folder from "./Folder";
+import Button from "../Button/Button";
+import Folder from "../Folder/Folder";
 
 function Folders() {
   return (

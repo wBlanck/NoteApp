@@ -1,0 +1,11 @@
+.folder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .icon {
+    font-size: 2.5rem;
+    color: #e0a743;
+  }
+}

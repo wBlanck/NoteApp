@@ -1,0 +1,11 @@
+.search-bar {
+  background-color: #6f6fc8;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 15px;
+  color: #b5b4c7;
+
+  &::placeholder {
+    color: #e8e8ec;
+  }
+}

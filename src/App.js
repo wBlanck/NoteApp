@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 
-import Notes from "./components/Notes";
-import Folders from "./components/Folders";
-import Modal from "./components/Modal";
-import SearchBar from "./components/SearchBar";
+import Notes from "./components/Notes/Notes";
+import Folders from "./components/Folders/Folders";
+import Modal from "./components/Modal/Modal";
+import SearchBar from "./components/SearchBar/SearchBar";
 import AppContext from "./context/AppContext";
 
 function App() {

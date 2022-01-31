@@ -1,5 +1,6 @@
+import "./SearchBar.scss";
 import { useContext } from "react";
-import AppContext from "../context/AppContext";
+import AppContext from "../../context/AppContext";
 
 function SearchBar() {
   const { setModalContent } = useContext(AppContext);

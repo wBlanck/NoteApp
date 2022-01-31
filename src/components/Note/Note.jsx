@@ -1,8 +1,9 @@
+import "./Note.scss";
 import React, { useContext } from "react";
 import { BsFillTrashFill } from "react-icons/bs";
 import { AiFillFolder } from "react-icons/ai";
 import { RiFileEditLine } from "react-icons/ri";
-import AppContext from "../context/AppContext";
+import AppContext from "../../context/AppContext";
 
 function Note() {
   const { setModalContent } = useContext(AppContext);

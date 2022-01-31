@@ -1,4 +1,4 @@
-import React from "react";
+import "./Folder.scss";
 import { AiFillFolder } from "react-icons/ai";
 
 function Folder() {
