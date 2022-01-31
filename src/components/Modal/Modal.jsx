@@ -5,6 +5,7 @@ import { BsFillTrashFill } from "react-icons/bs";
 import Button from "../Button/Button";
 import Folders from "../Folders/Folders";
 import Note from "../Note/Note";
+import Input from "../Input/Input";
 
 function Modal({ modalContent }) {
   let content;
@@ -35,7 +36,9 @@ function Modal({ modalContent }) {
     case "addnote":
       content = (
         <>
-          <input type="text" placeholder="Title" />
+          <h1>Add Note</h1>
+
+          <Input type="text" placeholder="Title" />
           <textarea
             name=""
             id=""
@@ -51,7 +54,7 @@ function Modal({ modalContent }) {
           <input
             type="text"
             placeholder="Folder name..."
-            className="input-folder"
+            className="input-folder center"
           />
         </>
       );
