@@ -14,7 +14,8 @@ function Note() {
     setModalContent("changefolder");
   };
   const editNote = () => {
-    document.querySelector(".modal").classList.value = "modal slide-in edit";
+    document.querySelector(".app-container").classList.add("slide-out");
+    document.querySelector(".modal").classList.value = "modal slide-in";
     setModalContent("edit");
   };
   const deleteNote = () => {

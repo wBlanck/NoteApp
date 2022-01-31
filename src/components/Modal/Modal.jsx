@@ -86,10 +86,23 @@ function Modal({ modalContent }) {
       break;
     case "edit":
       content = (
-        <>
-          <input type="text" placeholder="Title" />
-          <textarea name="" id="" placeholder="Notes..."></textarea>
-        </>
+        <div className="wrapper">
+          <h1>Edit Note</h1>
+
+          <Input type="text" placeholder="Title" />
+          <textarea
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="Notes..."></textarea>
+          <Button type="add">
+            <AiOutlinePlus />
+          </Button>
+          <Button type="close">
+            <AiOutlinePlus />
+          </Button>
+        </div>
       );
       break;
     case "delete":
