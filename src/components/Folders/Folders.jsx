@@ -13,7 +13,7 @@ function Folders() {
       <Folder />
       <Folder />
       <Folder />
-      <Button>
+      <Button type="add">
         <AiOutlinePlus />
       </Button>
     </div>

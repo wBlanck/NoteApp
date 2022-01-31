@@ -19,7 +19,7 @@ function Notes() {
       <Note />
       <Note />
       <Note />
-      <Button handleClick={addNote}>
+      <Button type="add" handleClick={addNote}>
         <AiOutlinePlus />
       </Button>
     </div>

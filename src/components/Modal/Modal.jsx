@@ -45,7 +45,10 @@ function Modal({ modalContent }) {
             cols="30"
             rows="10"
             placeholder="Notes..."></textarea>
-          <Button>
+          <Button type="add">
+            <AiOutlinePlus />
+          </Button>
+          <Button type="remove">
             <AiOutlinePlus />
           </Button>
         </div>

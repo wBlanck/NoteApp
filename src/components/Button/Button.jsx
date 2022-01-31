@@ -1,8 +1,8 @@
 import "./Button.scss";
 
-function Button({ children, handleClick, className }) {
+function Button({ children, handleClick, type }) {
   return (
-    <button className={`btn`} onClick={handleClick}>
+    <button className={`btn ${type}`} onClick={handleClick}>
       {children}
     </button>
   );

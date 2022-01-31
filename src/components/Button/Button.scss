@@ -13,8 +13,19 @@
   font-size: 1.5rem;
   border: none;
   border-bottom-right-radius: 4px;
+}
 
+.add {
   svg {
     color: #f6f6ff;
+  }
+}
+
+.remove {
+  transform: scaleX(-1);
+  left: 0;
+  svg {
+    color: rgb(207, 35, 35);
+    transform: rotate(45deg);
   }
 }
