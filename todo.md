@@ -1,3 +1,4 @@
+- fix wrapper comp
 - create all components then priority on logic before adding animations etc
 - organize folders
 - breakup css into SCSS
