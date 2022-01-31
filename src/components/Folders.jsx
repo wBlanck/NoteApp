@@ -1,4 +1,6 @@
 import React from "react";
+import { AiOutlinePlus } from "react-icons/ai";
+import Button from "./Button";
 import Folder from "./Folder";
 
 function Folders() {
@@ -11,6 +13,9 @@ function Folders() {
       <Folder />
       <Folder />
       <Folder />
+      <Button>
+        <AiOutlinePlus />
+      </Button>
     </div>
   );
 }
