@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
-import { AiFillFileAdd, AiFillFolderAdd } from "react-icons/ai";
-import Button from "./components/Button";
-import FeaturedNotes from "./components/FeaturedNotes";
+
+import Notes from "./components/Notes";
 import Folders from "./components/Folders";
 import Modal from "./components/Modal";
 import SearchBar from "./components/SearchBar";
@@ -26,17 +25,10 @@ function App() {
   return (
     <div className="app-container">
       <h1>Notes</h1>
-      <FeaturedNotes />
+      <Notes />
       <Folders />
       <SearchBar />
-      <div className="buttons">
-        <Button handleClick={addNote} className="btn-note">
-          <AiFillFileAdd />
-        </Button>
-        <Button handleClick={addFolder} className="btn-folder">
-          <AiFillFolderAdd style={{ color: "#e0a743" }} />
-        </Button>
-      </div>
+
       <Modal modalContent={modalContent} />
     </div>
   );

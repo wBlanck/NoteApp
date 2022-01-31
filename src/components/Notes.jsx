@@ -2,7 +2,7 @@ import Note from "./Note";
 
 function FeaturedNotes() {
   return (
-    <div className="featured-notes">
+    <div className="notes">
       {/* Click to add notes */}
       <Note />
       <Note />

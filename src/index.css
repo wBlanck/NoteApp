@@ -29,7 +29,7 @@ body {
 
 h1 {
   color: #e0a743;
-  margin-bottom: 50px;
+
   letter-spacing: 2px;
 }
 
@@ -99,13 +99,14 @@ textarea {
   height: 100%;
   color: white;
 }
-.featured-notes {
+.notes {
   color: #b5b4c7;
   background-color: #3f3c52;
   border-radius: 4px;
   padding: 15px;
   min-height: 150px;
-  max-height: 25vh;
+  max-height: 30vh;
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -149,7 +150,7 @@ textarea {
   flex: 1;
   border-radius: 4px;
   padding: 15px;
-  max-height: 25vh;
+  max-height: 30vh;
   min-height: 150px;
 }
 /* .folders::before {
