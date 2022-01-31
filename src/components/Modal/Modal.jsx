@@ -81,6 +81,9 @@ function Modal({ modalContent }) {
         </>
       );
       break;
+    case "openfolder":
+      content = <></>;
+      break;
     case "edit":
       content = (
         <>

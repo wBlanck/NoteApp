@@ -11,7 +11,7 @@ function Folders() {
     document.querySelector(".modal").classList.value = "modal slide-in edit";
     document.querySelector(".app-container").classList.add("slide-out");
 
-    setModalContent("addfolder");
+    setModalContent("openfolder");
   };
   return (
     <div className="folders">
