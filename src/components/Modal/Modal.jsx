@@ -6,8 +6,13 @@ import Button from "../Button/Button";
 import Folders from "../Folders/Folders";
 import Note from "../Note/Note";
 import Input from "../Input/Input";
+import Folder from "../Folder/Folder";
+import AppContext from "../../context/AppContext";
+import { useContext } from "react";
+import Wrapper from "../Wrapper/Wrapper";
 
-function Modal({ modalContent }) {
+function Modal() {
+  const { modalContent, setModalContent } = useContext(AppContext);
   let content;
 
   switch (modalContent) {
@@ -24,18 +29,25 @@ function Modal({ modalContent }) {
     case "changefolder":
       content = (
         <>
-          <h2>Move Note to</h2>
-          <Note />
-          <Folders />
-          <Button>
-            <AiOutlineCheck />
-          </Button>
+          <h1>Move Note</h1>
+          <div className="wrapper bg text-center">
+            <h2>Move Sleep to</h2>
+            <Note />
+            <Folders />
+
+            <Button type="add">
+              <AiOutlinePlus />
+            </Button>
+            <Button type="close">
+              <AiOutlinePlus />
+            </Button>
+          </div>
         </>
       );
       break;
     case "addnote":
       content = (
-        <div className="wrapper">
+        <>
           <h1>Add Note</h1>
 
           <Input type="text" placeholder="Title" />
@@ -51,7 +63,7 @@ function Modal({ modalContent }) {
           <Button type="close">
             <AiOutlinePlus />
           </Button>
-        </div>
+        </>
       );
       break;
     case "addfolder":
@@ -86,7 +98,7 @@ function Modal({ modalContent }) {
       break;
     case "edit":
       content = (
-        <div className="wrapper">
+        <>
           <h1>Edit Note</h1>
 
           <Input type="text" placeholder="Title" />
@@ -102,7 +114,7 @@ function Modal({ modalContent }) {
           <Button type="close">
             <AiOutlinePlus />
           </Button>
-        </div>
+        </>
       );
       break;
     case "delete":
@@ -124,7 +136,7 @@ function Modal({ modalContent }) {
       content = <h1>hehe</h1>;
   }
 
-  return <div className={`modal`}>{content}</div>;
+  return <Wrapper className={`modal`}>{content}</Wrapper>;
 }
 
 export default Modal;

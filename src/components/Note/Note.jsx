@@ -9,13 +9,13 @@ function Note() {
   const { setModalContent } = useContext(AppContext);
 
   const changeFolder = () => {
-    document.querySelector(".modal").classList.value =
-      "modal slide-in changefolder";
+    document.querySelector(".app-container").classList.add("slide-out");
+    document.querySelector(".modal").classList.value = "modal slide-in";
     setModalContent("changefolder");
   };
   const editNote = () => {
     document.querySelector(".app-container").classList.add("slide-out");
-    document.querySelector(".modal").classList.value = "modal slide-in";
+    document.querySelector(".modal").classList.add("slide-in");
     setModalContent("edit");
   };
   const deleteNote = () => {

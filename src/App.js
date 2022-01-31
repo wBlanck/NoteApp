@@ -7,21 +7,6 @@ import SearchBar from "./components/SearchBar/SearchBar";
 import AppContext from "./context/AppContext";
 
 function App() {
-  const { modalContent, setModalContent } = useContext(AppContext);
-  const addNote = () => {
-    document.querySelector(".modal").classList.value = "modal slide-in";
-    document.querySelector(".btn-note").classList.value = "btn slide-up-right";
-
-    setModalContent("addnote");
-  };
-  const addFolder = () => {
-    document.querySelector(".modal").classList.value =
-      "modal slide-in flex-center";
-
-    document.querySelector(".btn-folder").classList.value = "btn slide-up-left";
-
-    setModalContent("addfolder");
-  };
   return (
     <>
       <div className="app-container">
@@ -30,7 +15,7 @@ function App() {
         <Folders />
         <SearchBar />
       </div>
-      <Modal modalContent={modalContent} />
+      <Modal />
     </>
   );
 }

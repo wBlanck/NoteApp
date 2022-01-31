@@ -22,9 +22,6 @@ function Folders() {
       <Folder />
       <Folder />
       <Folder />
-      <Button type="add" handleClick={addFolder}>
-        <AiOutlinePlus />
-      </Button>
     </div>
   );
 }
