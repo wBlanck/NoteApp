@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 
 function Wrapper({ className, children, handleClick }) {
   return (
-    <div className={`wrapper ${className}`}>
+    <div className={`wrapper`}>
       {children}
       <Button type="add" handleClick={handleClick}>
         <AiOutlinePlus />

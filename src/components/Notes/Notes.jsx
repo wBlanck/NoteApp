@@ -15,12 +15,12 @@ function Notes() {
     setModalContent("addnote");
   };
   return (
-    <Wrapper className="notes" handleClick={addNote}>
+    <div className="notes" handleClick={addNote}>
       {/* Click to add notes */}
       <Note />
       <Note />
       <Note />
-    </Wrapper>
+    </div>
   );
 }
 

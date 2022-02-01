@@ -136,7 +136,11 @@ function Modal() {
       content = <h1>hehe</h1>;
   }
 
-  return <Wrapper className={`modal`}>{content}</Wrapper>;
+  return (
+    <div className={`modal`}>
+      <Wrapper>{content}</Wrapper>
+    </div>
+  );
 }
 
 export default Modal;
