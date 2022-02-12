@@ -15,10 +15,8 @@
 
 .folder-colors {
   display: grid;
-
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
-
   svg {
     font-size: 3.5rem;
   }
