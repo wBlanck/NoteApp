@@ -1,17 +1,14 @@
 import "./Button.scss";
 import { AiOutlinePlus } from "react-icons/ai";
 
-function Button({ children, handleClick, type }) {
-  const closeModal = () => {
-    document.querySelector(".app-container").classList.remove("slide-out");
-    document.querySelector(".modal").classList.value = "modal";
-    console.log("close");
+function Button({ type }) {
+  const toggleModal = () => {
+    const appContainer = document.querySelector(".app-container");
+    appContainer.classList.toggle("slide-out");
   };
 
   return (
-    <button
-      className={`btn ${type}`}
-      onClick={type === "close" ? closeModal : handleClick}>
+    <button className={`btn ${type}`} onClick={toggleModal}>
       <AiOutlinePlus />
     </button>
   );
