@@ -1,14 +1,9 @@
 import "./Button.scss";
 import { AiOutlinePlus } from "react-icons/ai";
 
-function Button({ type }) {
-  const toggleModal = () => {
-    const appContainer = document.querySelector(".app-container");
-    appContainer.classList.toggle("slide-out");
-  };
-
+function Button({ content, type, handleClick }) {
   return (
-    <button className={`btn ${type}`} onClick={toggleModal}>
+    <button className={`btn ${type}`} onClick={() => handleClick(content)}>
       <AiOutlinePlus />
     </button>
   );
