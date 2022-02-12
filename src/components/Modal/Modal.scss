@@ -1,8 +1,6 @@
 .modal {
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  gap: 19px;
+
   height: 90vh;
   width: 100%;
   padding: 15px;
@@ -14,7 +12,11 @@
   transition: all 0.5s;
   text-align: center;
 }
-
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+}
 .modal input {
   color: #b5b4c7;
   background-color: #3f3c52;
@@ -25,14 +27,18 @@
   width: 100%;
 }
 .modal textarea {
+  display: block;
   height: 100%;
   width: 100%;
   color: #b5b4c7;
   background-color: #3f3c52;
   border: none;
   font-size: 20px;
+  resize: none;
 }
-
+.modal.add-note .container {
+  height: 80vh;
+}
 .modal.add-folder h2 {
   color: #e0a743;
 }
