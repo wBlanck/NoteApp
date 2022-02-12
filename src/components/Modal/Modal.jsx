@@ -7,11 +7,12 @@ function Modal({ content, addNote }) {
     case "addNote":
       return (
         <div className={`modal`}>
-          <input type="text" />
+          <input type="text" placeholder="Title..." />
 
           <Container>
-            <textarea></textarea>
+            <textarea placeholder="Message..." />
             <Button type="add" handleClick={addNote} />
+            <Button type="close" handleClick={addNote} />
           </Container>
         </div>
       );
