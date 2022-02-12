@@ -8,6 +8,19 @@ import Folder from "../Folder/Folder";
 import Folders from "../Folders/Folders";
 
 function Modal({ content, addNote }) {
+  const activeFolder = (e) => {
+    // reset folder classes from "folder-active"
+    Array.from(document.querySelectorAll(".folder")).map((folder) =>
+      folder.classList.remove("folder-active")
+    );
+
+    if (e.target.parentNode.classList.contains("folder")) {
+      e.target.parentNode.classList.add("folder-active");
+    } else {
+      e.target.parentNode.parentNode.classList.add("folder-active");
+    }
+  };
+
   switch (content) {
     case "addNote":
       return (
@@ -26,15 +39,15 @@ function Modal({ content, addNote }) {
         <div className={`modal add-folder`}>
           <Container>
             <h2>Folder Color</h2>
-            <ul className="folder-colors">
-              <AiFillFolder className="green" />
-              <AiFillFolder className="blue" />
-              <AiFillFolder className="pink" />
-              <AiFillFolder className="yellow" />
-              <AiFillFolder className="gray" />
-              <AiFillFolder className="black" />
-              <AiFillFolder className="aqua" />
-              <AiFillFolder className="orange" />
+            <ul className="folder-colors" onClick={activeFolder}>
+              <Folder color="green" />
+              <Folder color="blue" />
+              <Folder color="pink" />
+              <Folder color="yellow" />
+              <Folder color="gray" />
+              <Folder color="black" />
+              <Folder color="aqua" />
+              <Folder color="orange" />
             </ul>
             <input type="text" placeholder="Folder Name" />
             <Button type="add" handleClick={addNote} />
