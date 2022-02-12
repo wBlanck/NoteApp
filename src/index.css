@@ -60,17 +60,6 @@ h1 {
   text-align: center !important;
 }
 
-.app-container {
-  background-color: #1f1d2b;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  padding: 15px;
-  position: relative;
-  transition: all 0.5s;
-}
-
 .icon-folder {
   color: #e0a743;
   margin-left: auto;

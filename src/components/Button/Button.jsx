@@ -1,4 +1,5 @@
 import "./Button.scss";
+import { AiOutlinePlus } from "react-icons/ai";
 
 function Button({ children, handleClick, type }) {
   const closeModal = () => {
@@ -11,7 +12,7 @@ function Button({ children, handleClick, type }) {
     <button
       className={`btn ${type}`}
       onClick={type === "close" ? closeModal : handleClick}>
-      {children}
+      <AiOutlinePlus />
     </button>
   );
 }

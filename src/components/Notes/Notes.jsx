@@ -15,7 +15,7 @@ function Notes() {
     setModalContent("addnote");
   };
   return (
-    <div className="notes" handleClick={addNote}>
+    <div className="notes">
       {/* Click to add notes */}
       <Note />
       <Note />

@@ -1,22 +1,20 @@
-import { useContext, useState } from "react";
+import "./App.css";
 
-import Notes from "./components/Notes/Notes";
-import Folders from "./components/Folders/Folders";
-import Modal from "./components/Modal/Modal";
 import SearchBar from "./components/SearchBar/SearchBar";
-import AppContext from "./context/AppContext";
+import Container from "./components/Container/Container";
+import Button from "./components/Button/Button";
 
 function App() {
   return (
-    <>
-      <div className="app-container">
-        <h1>Notes</h1>
-        <Notes />
-        <Folders />
-        <SearchBar />
-      </div>
-      <Modal />
-    </>
+    <div className="app-container">
+      <h1>Notes</h1>
+      <Container>
+        <h2>Add Note...</h2>
+        <Button type="add" />
+      </Container>
+      <Container />
+      <SearchBar />
+    </div>
   );
 }
 
