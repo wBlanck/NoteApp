@@ -12,6 +12,7 @@
   margin: 0 auto;
   transform: translateX(100%);
   transition: all 0.5s;
+  text-align: center;
 }
 
 .modal input {
@@ -32,6 +33,19 @@
   font-size: 20px;
 }
 
+.modal.add-folder h2 {
+  color: #e0a743;
+}
+.modal.add-folder input {
+  text-align: center;
+  margin-block: 40px;
+  color: #e0a743;
+}
+.modal.add-folder .container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
 .folder-colors {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
