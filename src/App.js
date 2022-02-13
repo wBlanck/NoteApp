@@ -87,7 +87,6 @@ function App() {
         </Container>
         <Container>
           <h2>Add Folder...</h2>
-          <Button type="add" content="addFolder" handleClick={toggleModal} />
         </Container>
         <SearchBar />
         <Modal

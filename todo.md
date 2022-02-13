@@ -1,3 +1,7 @@
 - fix API functions
 - finish the components and render them correctly (using DB)
-- use https://react-select.com/home for folder selection
+- use https://react-select.com/home for folder selection (OR NOT)
+- fix delete note function
+- fix change folder function
+- fix edit note function
+- fix search notes function

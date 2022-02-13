@@ -25,6 +25,7 @@ h1 {
   color: #e0a743;
   letter-spacing: 1px;
   font-weight: 400;
+  margin-bottom: 15px;
 }
 
 #root {
@@ -32,6 +33,7 @@ h1 {
   overflow: hidden;
   background-color: #1f1d2b;
   height: 100vh;
+  padding: 15px;
 }
 
 .slide-up-left {
