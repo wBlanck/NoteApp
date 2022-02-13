@@ -13,25 +13,10 @@ function Modal({ content, addNote, setModalContent }) {
   const [folderTitle, setFolderTitle] = useState("");
   const [folderColor, setFolderColor] = useState("");
 
-  const { postData, data, error } = useFetch(
-    "http://localhost:3000/data",
-    "POST"
-  );
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (document.querySelector(".modal").classList.contains("add-note")) {
-      /*   console.log(noteTitle);
-      console.log(noteMessage); */
-
-      noteTitle &&
-        noteMessage &&
-        postData({
-          title: noteTitle,
-          message: noteMessage,
-          folder: "",
-        });
-
+      addNote({ title: noteTitle, message: noteMessage });
       setNoteTitle("");
       setNoteMessage("");
       setModalContent("");
@@ -79,7 +64,7 @@ function Modal({ content, addNote, setModalContent }) {
                 onChange={(e) => setNoteMessage(e.target.value)}
                 value={noteMessage}
               />
-              <Button type="add" handleClick={addNote} />
+              <Button type="add" />
               <Button type="close" handleClick={addNote} />
             </Container>
           </form>

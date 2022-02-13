@@ -3,12 +3,9 @@ import React, { useContext } from "react";
 import { BsFillTrashFill } from "react-icons/bs";
 import { AiFillFolder } from "react-icons/ai";
 import { RiFileEditLine } from "react-icons/ri";
-import AppContext from "../../context/AppContext";
 
-function Note() {
-  const { setModalContent } = useContext(AppContext);
-
-  const changeFolder = () => {
+function Note({ title }) {
+  /*   const changeFolder = () => {
     document.querySelector(".app-container").classList.add("slide-out");
     document.querySelector(".modal").classList.value = "modal slide-in";
     setModalContent("changefolder");
@@ -22,13 +19,13 @@ function Note() {
     document.querySelector(".modal").classList.value = "modal slide-in delete";
     setModalContent("delete");
   };
-
+ */
   return (
     <div className="note">
-      Note
-      <AiFillFolder className="icon-folder" onClick={changeFolder} />
-      <RiFileEditLine className="icon-edit" onClick={editNote} />
-      <BsFillTrashFill className="icon-trash" onClick={deleteNote} />
+      {title}
+      <AiFillFolder className="icon-folder" />
+      <RiFileEditLine className="icon-edit" />
+      <BsFillTrashFill className="icon-trash" />
     </div>
   );
 }
