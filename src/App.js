@@ -93,6 +93,7 @@ function App() {
           content={modalContent}
           addNote={addNote}
           setModalContent={setModalContent}
+          toggle={toggleModal}
         />
       </div>
     </>

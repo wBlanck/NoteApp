@@ -7,7 +7,7 @@ import Button from "../Button/Button";
 import Container from "../Container/Container";
 import Folder from "../Folder/Folder";
 
-function Modal({ content, addNote, setModalContent }) {
+function Modal({ content, addNote, setModalContent, toggleModal }) {
   const [noteTitle, setNoteTitle] = useState("");
   const [noteMessage, setNoteMessage] = useState("");
   const [folderTitle, setFolderTitle] = useState("");
@@ -65,7 +65,7 @@ function Modal({ content, addNote, setModalContent }) {
                 value={noteMessage}
               />
               <Button type="add" />
-              <Button type="close" handleClick={addNote} />
+              <Button type="close" handleClick={toggleModal} />
             </Container>
           </form>
         </div>
