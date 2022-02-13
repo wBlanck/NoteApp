@@ -74,6 +74,10 @@ function App() {
     toggleModal();
   };
 
+  const deleteNote = (id) => {
+    setNotes(notes.filter((note) => note.id !== id));
+  };
+
   return (
     <>
       <h1>Notes</h1>
@@ -81,7 +85,10 @@ function App() {
         <Container>
           {!notes && <h2>Add Note...</h2>}
           <div className="notes">
-            {notes && notes.map((note) => <Note key={note.id} {...note} />)}
+            {notes &&
+              notes.map((note) => (
+                <Note key={note.id} {...note} deleteNote={deleteNote} />
+              ))}
           </div>
           <Button type="add" content="addNote" handleClick={toggleModal} />
         </Container>

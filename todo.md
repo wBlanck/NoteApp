@@ -2,7 +2,6 @@
 - finish the components and render them correctly (using DB)
 - fix/redesign add button
 - use https://react-select.com/home for folder selection (OR NOT)
-- fix delete note function
 - fix change folder function
 - fix edit note function
 - fix search notes function
