@@ -1,1 +1,2 @@
-- setup json-server etc
+- fix API functions
+- finish the components and render them correctly (using DB)

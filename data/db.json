@@ -1,9 +1,46 @@
 {
-  "notes": [
+  "data": [
     {
-      "id": "1",
-      "title": "Hello",
-      "message": "my first note"
+      "id": 1,
+      "title": "First note",
+      "message": "this is my first message",
+      "folder": "Generic"
+    },
+    {
+      "title": "testaa",
+      "message": "aaaaa",
+      "folder": "",
+      "id": 2
+    },
+    {
+      "title": "88",
+      "message": "88",
+      "folder": "",
+      "id": 3
+    },
+    {
+      "title": "77",
+      "message": "77",
+      "folder": "",
+      "id": 4
+    },
+    {
+      "title": "t",
+      "message": "tret",
+      "folder": "",
+      "id": 5
+    },
+    {
+      "title": "63",
+      "message": "55",
+      "folder": "",
+      "id": 6
+    },
+    {
+      "title": "dftgdf",
+      "message": "gdf",
+      "folder": "",
+      "id": 7
     }
   ]
 }

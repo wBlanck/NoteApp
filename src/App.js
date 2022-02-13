@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useFetch } from "./hooks/useFetch";
 //STYLES
 import "./App.css";
 // COMPONENTS
@@ -9,11 +10,20 @@ import Modal from "./components/Modal/Modal";
 
 function App() {
   const [modalContent, setModalContent] = useState("");
+  const [notes, setNotes] = useState(null);
+
+  const { data, isPending, error } = useFetch("http://localhost:3000/data");
+
+  useEffect(() => {
+    setNotes(data);
+  }, [data]);
+
+  console.log(data);
 
   const toggleModal = (content) => {
     const appContainer = document.querySelector(".app-container");
     appContainer.classList.toggle("slide-out");
-    console.log(appContainer.classList.contains("slide-out"));
+
     if (appContainer.classList.contains("slide-out")) {
       setModalContent(content);
     }
@@ -36,7 +46,11 @@ function App() {
           <Button type="add" content="addFolder" handleClick={toggleModal} />
         </Container>
         <SearchBar />
-        <Modal content={modalContent} addNote={addNote} />
+        <Modal
+          content={modalContent}
+          addNote={addNote}
+          setModalContent={setModalContent}
+        />
       </div>
     </>
   );
