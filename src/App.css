@@ -1,6 +1,6 @@
 .app-container {
   background-color: #1f1d2b;
-  height: 100vh;
+
   display: flex;
   flex-direction: column;
   gap: 30px;

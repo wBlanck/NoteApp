@@ -31,6 +31,7 @@ h1 {
   position: relative;
   overflow: hidden;
   background-color: #1f1d2b;
+  height: 100vh;
 }
 
 .slide-up-left {
