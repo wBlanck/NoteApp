@@ -1,2 +1,3 @@
 - fix API functions
 - finish the components and render them correctly (using DB)
+- use https://react-select.com/home for folder selection
