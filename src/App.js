@@ -56,20 +56,23 @@ function App() {
   };
 
   const editNote = async (id, updNote) => {
-    const response = await fetch(`http://localhost:3000/data/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updNote),
-    });
+    try {
+      const response = await fetch(`http://localhost:3000/data/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updNote),
+      });
 
-    const data = await response.json();
-
-    setNotes(
-      notes.map((note) => (note.id === id ? { ...note, ...data } : note))
-    );
-    setNoteToEdit(null);
+      const data = await response.json();
+      setNotes(
+        notes.map((note) => (note.id === id ? { ...note, ...data } : note))
+      );
+      setNoteToEdit(null);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (

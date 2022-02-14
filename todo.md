@@ -1,7 +1,5 @@
 - fix API functions
 - finish the components and render them correctly (using DB)
 - fix/redesign add button
-- use https://react-select.com/home for folder selection (OR NOT)
-- fix change folder function
-- fix edit note function
+- add try / catch block to fetch requests
 - fix search notes function
