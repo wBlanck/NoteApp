@@ -22,7 +22,14 @@ function Note({ id, title, deleteNote, setNoteToEdit, toggleModal }) {
  */
 
   return (
-    <div className="note">
+    <div
+      className="note"
+      onClick={(e) => {
+        if (e.target.classList.contains("note")) {
+          setNoteToEdit(id);
+          toggleModal("editNote");
+        }
+      }}>
       {title}
       <AiFillFolder className="icon-folder" />
       <RiFileEditLine

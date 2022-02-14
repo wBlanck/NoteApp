@@ -11,7 +11,6 @@ function Modal({
   addNote,
   editNote,
   noteToEdit,
-  setNoteToEdit,
   setModalContent,
   toggleModal,
 }) {

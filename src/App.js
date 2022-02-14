@@ -64,8 +64,10 @@ function App() {
       body: JSON.stringify(updNote),
     });
 
+    const data = await response.json();
+
     setNotes(
-      notes.map((note) => (note.id === id ? { ...note, ...updNote } : note))
+      notes.map((note) => (note.id === id ? { ...note, ...data } : note))
     );
     setNoteToEdit(null);
   };
