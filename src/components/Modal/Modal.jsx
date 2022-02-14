@@ -13,11 +13,6 @@ function Modal({ content, addNote, editNote, setModalContent, toggleModal }) {
   const [folderTitle, setFolderTitle] = useState("");
   const [folderColor, setFolderColor] = useState("");
 
-  useEffect(() => {
-    editNote && setNoteTitle(editNote[0].title);
-    editNote && setNoteMessage(editNote[0].message);
-  }, [editNote]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (document.querySelector(".modal").classList.contains("add-note")) {

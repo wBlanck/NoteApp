@@ -13,7 +13,7 @@ import Folder from "./components/Folder/Folder";
 function App() {
   const [modalContent, setModalContent] = useState("");
   const [notes, setNotes] = useState(null);
-  const [editNote, setEditNote] = useState(null);
+
   const [folders, setFolders] = useState([]);
 
   const fetchData = async () => {
@@ -24,24 +24,9 @@ function App() {
     setNotes(data);
   };
 
-  const deleteNote = async (id) => {
-    await fetch(`http://localhost:3000/data/${id}`, { method: "DELETE" });
-    setNotes(notes.filter((note) => note.id !== id));
-  };
-
   useEffect(() => {
     fetchData();
   }, []);
-
-  /*   useEffect(() => {
-    // FILTER FOLDERS
-    const getFolders = notes.map((note) => note.folder);
-    const sortFolders = getFolders.filter(
-      (folder, pos) => getFolders.indexOf(folder) === pos
-    );
-
-    setFolders(sortFolders);
-  }, [notes]); */
 
   const toggleModal = (content) => {
     const appContainer = document.querySelector(".app-container");
@@ -52,21 +37,31 @@ function App() {
     }
   };
 
-  /* 
-  const addNote = (note) => {
-    note.length && setNotes([...notes, note]);
+  const addNote = async (note) => {
+    const response = await fetch("http://localhost:3000/data", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(note),
+    });
+    const data = await response.json();
+
+    setNotes([...notes, data]);
+
     toggleModal();
   };
 
-  const edit = (id) => {
-    toggleModal("addNote");
-    setEditNote(notes.filter((note) => note.id === id));
-  };
-
-  const deleteNote = (id) => {
+  const deleteNote = async (id) => {
+    await fetch(`http://localhost:3000/data/${id}`, { method: "DELETE" });
     setNotes(notes.filter((note) => note.id !== id));
   };
- */
+
+  const editNote = (id) => {
+    toggleModal("addNote");
+    console.log("id", id);
+    /* setEditNote(notes.filter((note) => note.id === id)); */
+  };
 
   return (
     <>
@@ -95,6 +90,7 @@ function App() {
         <SearchBar />
         <Modal
           content={modalContent}
+          addNote={addNote}
           editNote={editNote}
           setModalContent={setModalContent}
           toggle={toggleModal}
