@@ -13,7 +13,7 @@ import Folder from "./components/Folder/Folder";
 function App() {
   const [modalContent, setModalContent] = useState("");
   const [notes, setNotes] = useState(null);
-
+  const [noteToEdit, setNoteToEdit] = useState(null);
   const [folders, setFolders] = useState([]);
 
   const fetchData = async () => {
@@ -48,8 +48,6 @@ function App() {
     const data = await response.json();
 
     setNotes([...notes, data]);
-
-    toggleModal();
   };
 
   const deleteNote = async (id) => {
@@ -57,10 +55,19 @@ function App() {
     setNotes(notes.filter((note) => note.id !== id));
   };
 
-  const editNote = (id) => {
-    toggleModal("addNote");
-    console.log("id", id);
-    /* setEditNote(notes.filter((note) => note.id === id)); */
+  const editNote = async (id, updNote) => {
+    const response = await fetch(`http://localhost:3000/data/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updNote),
+    });
+
+    setNotes(
+      notes.map((note) => (note.id === id ? { ...note, ...updNote } : note))
+    );
+    setNoteToEdit(null);
   };
 
   return (
@@ -73,7 +80,13 @@ function App() {
           <div className="notes">
             {notes &&
               notes.map((note) => (
-                <Note key={note.id} {...note} deleteNote={deleteNote} />
+                <Note
+                  key={note.id}
+                  {...note}
+                  deleteNote={deleteNote}
+                  setNoteToEdit={setNoteToEdit}
+                  toggleModal={toggleModal}
+                />
               ))}
           </div>
           <Button type="add" content="addNote" handleClick={toggleModal} />
@@ -90,10 +103,13 @@ function App() {
         <SearchBar />
         <Modal
           content={modalContent}
+          notes={notes}
           addNote={addNote}
           editNote={editNote}
+          noteToEdit={noteToEdit}
+          setNoteToEdit={setNoteToEdit}
           setModalContent={setModalContent}
-          toggle={toggleModal}
+          toggleModal={toggleModal}
         />
       </div>
     </>

@@ -4,7 +4,7 @@ import { BsFillTrashFill } from "react-icons/bs";
 import { AiFillFolder } from "react-icons/ai";
 import { RiFileEditLine } from "react-icons/ri";
 
-function Note({ id, title, deleteNote, edit }) {
+function Note({ id, title, deleteNote, setNoteToEdit, toggleModal }) {
   /*   const changeFolder = () => {
     document.querySelector(".app-container").classList.add("slide-out");
     document.querySelector(".modal").classList.value = "modal slide-in";
@@ -20,11 +20,18 @@ function Note({ id, title, deleteNote, edit }) {
     setModalContent("delete");
   };
  */
+
   return (
     <div className="note">
       {title}
       <AiFillFolder className="icon-folder" />
-      <RiFileEditLine className="icon-edit" onClick={() => edit(id)} />
+      <RiFileEditLine
+        className="icon-edit"
+        onClick={() => {
+          setNoteToEdit(id);
+          toggleModal("editNote");
+        }}
+      />
       <BsFillTrashFill className="icon-trash" onClick={() => deleteNote(id)} />
     </div>
   );

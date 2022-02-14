@@ -1,36 +1,47 @@
 import { useEffect, useState } from "react";
-import { useFetch } from "../../hooks/useFetch";
 
 import "./Modal.scss";
 
 import Button from "../Button/Button";
 import Container from "../Container/Container";
-import Folder from "../Folder/Folder";
 
-function Modal({ content, addNote, editNote, setModalContent, toggleModal }) {
+function Modal({
+  content,
+  notes,
+  addNote,
+  editNote,
+  noteToEdit,
+  setNoteToEdit,
+  setModalContent,
+  toggleModal,
+}) {
   const [noteTitle, setNoteTitle] = useState("");
   const [noteMessage, setNoteMessage] = useState("");
-  const [folderTitle, setFolderTitle] = useState("");
-  const [folderColor, setFolderColor] = useState("");
+
+  useEffect(() => {
+    noteToEdit &&
+      setNoteTitle(notes.filter((note) => note.id === noteToEdit)[0].title);
+    noteToEdit &&
+      setNoteMessage(notes.filter((note) => note.id === noteToEdit)[0].message);
+  }, [noteToEdit]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (document.querySelector(".modal").classList.contains("add-note")) {
-      addNote({ title: noteTitle, message: noteMessage });
-      setNoteTitle("");
-      setNoteMessage("");
-      setModalContent("");
-    } else {
-      /*   console.log(folderTitle);
-      console.log(folderColor); */
 
-      setFolderColor("");
-      setFolderTitle("");
-      setModalContent("");
+    if (noteTitle && noteMessage && !noteToEdit) {
+      addNote({ title: noteTitle, message: noteMessage });
     }
+    if (noteToEdit) {
+      editNote(noteToEdit, { title: noteTitle, message: noteMessage });
+    }
+
+    setNoteTitle("");
+    setNoteMessage("");
+    setModalContent("");
+    toggleModal();
   };
 
-  const activeFolder = (e) => {
+  /* const activeFolder = (e) => {
     // reset folder classes from "folder-active"
     Array.from(document.querySelectorAll(".folder")).map((folder) =>
       folder.classList.remove("folder-active")
@@ -44,7 +55,7 @@ function Modal({ content, addNote, editNote, setModalContent, toggleModal }) {
       e.target.parentNode.parentNode.classList.add("folder-active");
       setFolderColor(e.target.parentNode.style.color);
     }
-  };
+  }; */
 
   switch (content) {
     case "addNote":
@@ -65,41 +76,34 @@ function Modal({ content, addNote, editNote, setModalContent, toggleModal }) {
                 value={noteMessage}
               />
               <Button type="add" />
-              <Button type="close" handleClick={toggleModal} />
+              <Button type="close" />
             </Container>
           </form>
         </div>
       );
-
-    case "addFolder":
+    case "editNote":
       return (
-        <div className={`modal add-folder`}>
+        <div className={`modal add-note`}>
           <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Title..."
+              onChange={(e) => setNoteTitle(e.target.value)}
+              value={noteTitle}
+            />
+
             <Container>
-              <h2>Folder Color</h2>
-              <ul className="folder-colors" onClick={activeFolder}>
-                <Folder color="green" />
-                <Folder color="blue" />
-                <Folder color="pink" />
-                <Folder color="yellow" />
-                <Folder color="gray" />
-                <Folder color="black" />
-                <Folder color="aqua" />
-                <Folder color="orange" />
-              </ul>
-              <input
-                type="text"
-                placeholder="Folder Name"
-                onChange={(e) => setFolderTitle(e.target.value)}
-                value={folderTitle}
+              <textarea
+                placeholder="Message..."
+                onChange={(e) => setNoteMessage(e.target.value)}
+                value={noteMessage}
               />
-              <Button type="add" handleClick={(e) => addNote(e)} />
-              <Button type="close" handleClick={addNote} />
+              <Button type="add" />
+              <Button type="close" />
             </Container>
           </form>
         </div>
       );
-
     default:
       return (
         <div className={`modal`}>
