@@ -58,6 +58,7 @@ const notesDb = [
 function App() {
   const [modalContent, setModalContent] = useState("");
   const [notes, setNotes] = useState(notesDb);
+  const [editNote, setEditNote] = useState(null);
   const [folders, setFolders] = useState([]);
 
   /*   const { data, isPending, error } = useFetch("http://localhost:3000/data");
@@ -93,13 +94,10 @@ function App() {
     toggleModal();
   };
 
-  const editNote = (id) => {
-    notes.map((note) => {
-      if (note.id === id) {
-        toggleModal("addNote");
-        return note;
-      }
-    });
+  const edit = (id) => {
+    toggleModal("addNote");
+    setEditNote(notes.filter((note) => note.id === id));
+    console.log(editNote);
   };
 
   const deleteNote = (id) => {
@@ -120,7 +118,7 @@ function App() {
                   key={note.id}
                   {...note}
                   deleteNote={deleteNote}
-                  editNote={editNote}
+                  edit={edit}
                 />
               ))}
           </div>

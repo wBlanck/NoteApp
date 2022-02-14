@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
 
 import "./Modal.scss";
@@ -12,6 +12,11 @@ function Modal({ content, addNote, editNote, setModalContent, toggleModal }) {
   const [noteMessage, setNoteMessage] = useState("");
   const [folderTitle, setFolderTitle] = useState("");
   const [folderColor, setFolderColor] = useState("");
+
+  useEffect(() => {
+    editNote && setNoteTitle(editNote[0].title);
+    editNote && setNoteMessage(editNote[0].message);
+  }, [editNote]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
