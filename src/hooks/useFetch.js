@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const useFetch = (url, method = "GET") => {
+export const useFetch = (url, method = "GET", id) => {
   const [data, setData] = useState(null);
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState(null);
@@ -20,7 +20,7 @@ export const useFetch = (url, method = "GET") => {
   useEffect(() => {
     const controller = new AbortController();
 
-    const fetchData = async (fetchOptions) => {
+    const fetchData = async (fetchOptions, id) => {
       setIsPending(true);
 
       try {
@@ -51,6 +51,9 @@ export const useFetch = (url, method = "GET") => {
     }
     if (method === "POST" && options) {
       fetchData(options);
+    }
+    if (method === "DELETE" && id) {
+      fetchData();
     }
 
     return () => {

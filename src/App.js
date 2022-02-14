@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useFetch } from "./hooks/useFetch";
+
 //STYLES
 import "./App.css";
 // COMPONENTS
@@ -10,67 +10,30 @@ import Modal from "./components/Modal/Modal";
 import Note from "./components/Note/Note";
 import Folder from "./components/Folder/Folder";
 
-const notesDb = [
-  {
-    id: 1,
-    title: "first note",
-    message: "This is my first note",
-    folder: "test",
-  },
-  {
-    id: 2,
-    title: "Groceries",
-    message: "This is my first note",
-    folder: "Food",
-  },
-  {
-    id: 3,
-    title: "Studies",
-    message: "This is my first note",
-    folder: "test",
-  },
-  {
-    id: 4,
-    title: "Generic",
-    message: "This is my first note",
-    folder: "test",
-  },
-  {
-    id: 5,
-    title: "Test",
-    message: "This is my first note",
-    folder: "test",
-  },
-  {
-    id: 6,
-    title: "TEst222",
-    message: "This is my first note",
-    folder: "test",
-  },
-  {
-    id: 7,
-    title: "Taasda",
-    message: "This is my first note",
-    folder: "test",
-  },
-];
-
 function App() {
   const [modalContent, setModalContent] = useState("");
-  const [notes, setNotes] = useState(notesDb);
+  const [notes, setNotes] = useState(null);
   const [editNote, setEditNote] = useState(null);
   const [folders, setFolders] = useState([]);
 
-  /*   const { data, isPending, error } = useFetch("http://localhost:3000/data");
+  const fetchData = async () => {
+    const response = await fetch("http://localhost:3000/data");
+    const data = await response.json();
 
-  useEffect(() => {
+    console.log(data);
     setNotes(data);
-  }, [data]);
+  };
 
-  console.log(data);
- */
+  const deleteNote = async (id) => {
+    await fetch(`http://localhost:3000/data/${id}`, { method: "DELETE" });
+    setNotes(notes.filter((note) => note.id !== id));
+  };
 
   useEffect(() => {
+    fetchData();
+  }, []);
+
+  /*   useEffect(() => {
     // FILTER FOLDERS
     const getFolders = notes.map((note) => note.folder);
     const sortFolders = getFolders.filter(
@@ -78,7 +41,7 @@ function App() {
     );
 
     setFolders(sortFolders);
-  }, [notes]);
+  }, [notes]); */
 
   const toggleModal = (content) => {
     const appContainer = document.querySelector(".app-container");
@@ -89,6 +52,7 @@ function App() {
     }
   };
 
+  /* 
   const addNote = (note) => {
     note.length && setNotes([...notes, note]);
     toggleModal();
@@ -97,12 +61,12 @@ function App() {
   const edit = (id) => {
     toggleModal("addNote");
     setEditNote(notes.filter((note) => note.id === id));
-    console.log(editNote);
   };
 
   const deleteNote = (id) => {
     setNotes(notes.filter((note) => note.id !== id));
   };
+ */
 
   return (
     <>
@@ -114,12 +78,7 @@ function App() {
           <div className="notes">
             {notes &&
               notes.map((note) => (
-                <Note
-                  key={note.id}
-                  {...note}
-                  deleteNote={deleteNote}
-                  edit={edit}
-                />
+                <Note key={note.id} {...note} deleteNote={deleteNote} />
               ))}
           </div>
           <Button type="add" content="addNote" handleClick={toggleModal} />
@@ -136,7 +95,6 @@ function App() {
         <SearchBar />
         <Modal
           content={modalContent}
-          addNote={addNote}
           editNote={editNote}
           setModalContent={setModalContent}
           toggle={toggleModal}
