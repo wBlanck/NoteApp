@@ -9,7 +9,6 @@ import Button from "./components/Button/Button";
 import Modal from "./components/Modal/Modal";
 import Note from "./components/Note/Note";
 import Folder from "./components/Folder/Folder";
-import Folders from "./components/Folders/Folders";
 
 const notesDb = [
   {
@@ -71,6 +70,7 @@ function App() {
  */
 
   useEffect(() => {
+    // FILTER FOLDERS
     const getFolders = notes.map((note) => note.folder);
     const sortFolders = getFolders.filter(
       (folder, pos) => getFolders.indexOf(folder) === pos

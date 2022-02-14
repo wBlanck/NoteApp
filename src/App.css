@@ -8,3 +8,18 @@
   position: relative;
   transition: all 0.5s;
 }
+
+.folders {
+  position: relative;
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  color: #b5b4c7;
+  background-color: #3f3c52;
+  flex: 1;
+  border-radius: 4px;
+  padding: 15px;
+  max-height: 30vh;
+  min-height: 150px;
+}
