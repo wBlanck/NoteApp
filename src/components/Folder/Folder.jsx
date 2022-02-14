@@ -9,7 +9,7 @@ function Folder({ children, color, handleClick }) {
 
   return (
     <div className={`folder`}>
-      <AiFillFolder style={{ color: color }} />
+      <AiFillFolder style={{ color: "#e0a743" }} />
       <span className="title">{children}</span>
     </div>
   );

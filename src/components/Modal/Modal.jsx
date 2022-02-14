@@ -7,7 +7,7 @@ import Button from "../Button/Button";
 import Container from "../Container/Container";
 import Folder from "../Folder/Folder";
 
-function Modal({ content, addNote, setModalContent, toggleModal }) {
+function Modal({ content, addNote, editNote, setModalContent, toggleModal }) {
   const [noteTitle, setNoteTitle] = useState("");
   const [noteMessage, setNoteMessage] = useState("");
   const [folderTitle, setFolderTitle] = useState("");
@@ -70,6 +70,7 @@ function Modal({ content, addNote, setModalContent, toggleModal }) {
           </form>
         </div>
       );
+
     case "addFolder":
       return (
         <div className={`modal add-folder`}>

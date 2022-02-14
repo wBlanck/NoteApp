@@ -13,17 +13,7 @@ function Folders() {
 
     setModalContent("openfolder");
   };
-  return (
-    <div className="folders">
-      {/* Click to add a folder */}
-      <Folder />
-      <Folder />
-      <Folder />
-      <Folder />
-      <Folder />
-      <Folder />
-    </div>
-  );
+  return <div className="folders">{/* Click to add a folder */}</div>;
 }
 
 export default Folders;
