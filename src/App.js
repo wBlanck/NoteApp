@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 //STYLES
 import "./App.css";
@@ -9,71 +9,15 @@ import Button from "./components/Button/Button";
 import Modal from "./components/Modal/Modal";
 import Note from "./components/Note/Note";
 import Folder from "./components/Folder/Folder";
+import NoteContext from "./noteapp/NoteContext";
 
 function App() {
-  const [modalContent, setModalContent] = useState("");
-  const [notes, setNotes] = useState(null);
-  const [noteToEdit, setNoteToEdit] = useState(null);
-  const [folders, setFolders] = useState([]);
-
-  const fetchData = async () => {
-    const response = await fetch("http://localhost:3000/data");
-    const data = await response.json();
-
-    console.log(data);
-    setNotes(data);
-  };
+  const { modalContent, fetchData, toggleModal, notes, folders } =
+    useContext(NoteContext);
 
   useEffect(() => {
     fetchData();
   }, []);
-
-  const toggleModal = (content) => {
-    const appContainer = document.querySelector(".app-container");
-    appContainer.classList.toggle("slide-out");
-
-    if (appContainer.classList.contains("slide-out")) {
-      setModalContent(content);
-    }
-  };
-
-  const addNote = async (note) => {
-    const response = await fetch("http://localhost:3000/data", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(note),
-    });
-    const data = await response.json();
-
-    setNotes([...notes, data]);
-  };
-
-  const deleteNote = async (id) => {
-    await fetch(`http://localhost:3000/data/${id}`, { method: "DELETE" });
-    setNotes(notes.filter((note) => note.id !== id));
-  };
-
-  const editNote = async (id, updNote) => {
-    try {
-      const response = await fetch(`http://localhost:3000/data/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updNote),
-      });
-
-      const data = await response.json();
-      setNotes(
-        notes.map((note) => (note.id === id ? { ...note, ...data } : note))
-      );
-      setNoteToEdit(null);
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   return (
     <>
@@ -83,16 +27,7 @@ function App() {
         <Container>
           {!notes && <h2>Add Note...</h2>}
           <div className="notes">
-            {notes &&
-              notes.map((note) => (
-                <Note
-                  key={note.id}
-                  {...note}
-                  deleteNote={deleteNote}
-                  setNoteToEdit={setNoteToEdit}
-                  toggleModal={toggleModal}
-                />
-              ))}
+            {notes && notes.map((note) => <Note key={note.id} {...note} />)}
           </div>
           <Button type="add" content="addNote" handleClick={toggleModal} />
         </Container>
@@ -106,16 +41,7 @@ function App() {
           </div>
         </Container>
         <SearchBar />
-        <Modal
-          content={modalContent}
-          notes={notes}
-          addNote={addNote}
-          editNote={editNote}
-          noteToEdit={noteToEdit}
-          setNoteToEdit={setNoteToEdit}
-          setModalContent={setModalContent}
-          toggleModal={toggleModal}
-        />
+        <Modal content={modalContent} />
       </div>
     </>
   );

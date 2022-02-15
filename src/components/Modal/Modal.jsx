@@ -1,19 +1,22 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useReducer, useState } from "react";
 
 import "./Modal.scss";
 
 import Button from "../Button/Button";
 import Container from "../Container/Container";
+import NoteContext from "../../noteapp/NoteContext";
 
-function Modal({
-  content,
-  notes,
-  addNote,
-  editNote,
-  noteToEdit,
-  setModalContent,
-  toggleModal,
-}) {
+function Modal({ content }) {
+  const {
+    dispatch,
+    toggleModal,
+    addNote,
+    editNote,
+    notes,
+    noteToEdit,
+    folders,
+  } = useContext(NoteContext);
+
   const [noteTitle, setNoteTitle] = useState("");
   const [noteMessage, setNoteMessage] = useState("");
 
@@ -36,7 +39,12 @@ function Modal({
 
     setNoteTitle("");
     setNoteMessage("");
-    setModalContent("");
+
+    dispatch({
+      type: "SET_MODAL_CONTENT",
+      payload: "",
+    });
+
     toggleModal();
   };
 
