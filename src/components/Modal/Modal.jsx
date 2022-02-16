@@ -9,7 +9,7 @@ import NoteContext from "../../noteapp/NoteContext";
 function Modal({ content }) {
   const {
     dispatch,
-    toggleModal,
+
     addNote,
     editNote,
     notes,
@@ -41,11 +41,8 @@ function Modal({ content }) {
     setNoteMessage("");
 
     dispatch({
-      type: "SET_MODAL_CONTENT",
-      payload: "",
+      type: "CLOSE_MODAL",
     });
-
-    toggleModal();
   };
 
   /* const activeFolder = (e) => {

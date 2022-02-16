@@ -12,8 +12,15 @@ import Folder from "./components/Folder/Folder";
 import NoteContext from "./noteapp/NoteContext";
 
 function App() {
-  const { modalContent, fetchData, toggleModal, notes, folders } =
-    useContext(NoteContext);
+  const {
+    dispatch,
+    showModal,
+    modalContent,
+    fetchData,
+
+    notes,
+    folders,
+  } = useContext(NoteContext);
 
   useEffect(() => {
     fetchData();
@@ -22,14 +29,20 @@ function App() {
   return (
     <>
       <h1>Notes</h1>
-      <div className="app-container">
+      <div className={`app-container ${showModal && "slide-out"}`}>
         {/* NOTES */}
         <Container>
           {!notes && <h2>Add Note...</h2>}
           <div className="notes">
             {notes && notes.map((note) => <Note key={note.id} {...note} />)}
           </div>
-          <Button type="add" content="addNote" handleClick={toggleModal} />
+          <Button
+            type="add"
+            content="addNote"
+            handleClick={() =>
+              dispatch({ type: "SHOW_MODAL", payload: "addNote" })
+            }
+          />
         </Container>
 
         {/* FOLDERS */}

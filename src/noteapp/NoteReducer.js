@@ -5,10 +5,17 @@ const noteReducer = (state, action) => {
         ...state,
         notes: action.payload,
       };
-    case "SET_MODAL_CONTENT":
+    case "SHOW_MODAL":
       return {
         ...state,
         modalContent: action.payload,
+        showModal: true,
+      };
+    case "CLOSE_MODAL":
+      return {
+        ...state,
+        modalContent: "",
+        showModal: false,
       };
     case "ADD_NOTE":
       return {

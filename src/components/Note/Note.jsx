@@ -6,7 +6,7 @@ import { RiFileEditLine } from "react-icons/ri";
 import NoteContext from "../../noteapp/NoteContext";
 
 function Note({ id, title }) {
-  const { toggleModal, deleteNote, dispatch } = useContext(NoteContext);
+  const { deleteNote, dispatch } = useContext(NoteContext);
 
   return (
     <div
@@ -17,7 +17,7 @@ function Note({ id, title }) {
             type: "NOTE_TO_EDIT",
             payload: id,
           });
-          toggleModal("editNote");
+          dispatch({ type: "SHOW_MODAL", payload: "editNote" });
         }
       }}>
       {title}
@@ -29,7 +29,8 @@ function Note({ id, title }) {
             type: "NOTE_TO_EDIT",
             payload: id,
           });
-          toggleModal("editNote");
+
+          dispatch({ type: "SHOW_MODAL", payload: "editNote" });
         }}
       />
       <BsFillTrashFill className="icon-trash" onClick={() => deleteNote(id)} />

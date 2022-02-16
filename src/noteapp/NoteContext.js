@@ -7,6 +7,7 @@ const NoteContext = createContext();
 export const NoteProvider = ({ children }) => {
   const initialState = {
     modalContent: "",
+    showModal: false,
     notes: null,
     noteToEdit: null,
     folders: [],
@@ -74,28 +75,16 @@ export const NoteProvider = ({ children }) => {
     });
   };
 
-  const toggleModal = (content) => {
-    const appContainer = document.querySelector(".app-container");
-    appContainer.classList.toggle("slide-out");
-
-    if (appContainer.classList.contains("slide-out")) {
-      dispatch({
-        type: "SET_MODAL_CONTENT",
-        payload: content,
-      });
-    }
-  };
-
   return (
     <NoteContext.Provider
       value={{
         initialState,
         modalContent: state.modalContent,
+        showModal: state.showModal,
         notes: state.notes,
         noteToEdit: state.noteToEdit,
         folders: state.folders,
         fetchData,
-        toggleModal,
         deleteNote,
         addNote,
         editNote,
