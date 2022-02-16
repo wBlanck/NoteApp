@@ -1,5 +1,4 @@
 import { createContext, useReducer } from "react";
-import { RiAuctionFill } from "react-icons/ri";
 import noteReducer from "./NoteReducer";
 
 const NoteContext = createContext();
@@ -67,7 +66,6 @@ export const NoteProvider = ({ children }) => {
   };
 
   const deleteNote = async (id) => {
-    console.log(id);
     await fetch(`http://localhost:3000/data/${id}`, { method: "DELETE" });
 
     dispatch({

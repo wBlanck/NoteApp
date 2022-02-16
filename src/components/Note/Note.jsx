@@ -1,5 +1,5 @@
 import "./Note.scss";
-import React, { useContext, useReducer } from "react";
+import React, { useContext } from "react";
 import { BsFillTrashFill } from "react-icons/bs";
 import { AiFillFolder } from "react-icons/ai";
 import { RiFileEditLine } from "react-icons/ri";

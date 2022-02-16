@@ -1,12 +1,7 @@
 import "./Folder.scss";
 import { AiFillFolder } from "react-icons/ai";
 
-function Folder({ children, color, handleClick }) {
-  const openFolder = () => {
-    document.querySelector(".app-container").classList.add("slide-out");
-    document.querySelector(".modal").classList.value = "modal slide-in";
-  };
-
+function Folder({ children }) {
   return (
     <div className={`folder`}>
       <AiFillFolder style={{ color: "#e0a743" }} />

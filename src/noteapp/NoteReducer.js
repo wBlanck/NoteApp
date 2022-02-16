@@ -15,6 +15,7 @@ const noteReducer = (state, action) => {
       return {
         ...state,
         modalContent: "",
+        noteToEdit: null,
         showModal: false,
       };
     case "ADD_NOTE":

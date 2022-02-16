@@ -1,4 +1,4 @@
-import { useContext, useEffect, useReducer, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import "./Modal.scss";
 
@@ -7,7 +7,7 @@ import Container from "../Container/Container";
 import NoteContext from "../../noteapp/NoteContext";
 
 function Modal({ content }) {
-  const { dispatch, addNote, editNote, notes, noteToEdit, folders } =
+  const { dispatch, addNote, editNote, notes, noteToEdit } =
     useContext(NoteContext);
 
   const [noteTitle, setNoteTitle] = useState("");
@@ -24,7 +24,7 @@ function Modal({ content }) {
       setNoteTitle(title);
       setNoteMessage(message);
     }
-  }, [noteToEdit]);
+  }, [notes, noteToEdit]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -103,7 +103,7 @@ function Modal({ content }) {
                 onChange={(e) => setNoteMessage(e.target.value)}
                 value={noteMessage}
               />
-              <Button type="add" />
+              <Button type="update" />
               <Button type="close" />
             </Container>
           </form>
