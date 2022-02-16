@@ -7,34 +7,35 @@ import Container from "../Container/Container";
 import NoteContext from "../../noteapp/NoteContext";
 
 function Modal({ content }) {
-  const {
-    dispatch,
-
-    addNote,
-    editNote,
-    notes,
-    noteToEdit,
-    folders,
-  } = useContext(NoteContext);
+  const { dispatch, addNote, editNote, notes, noteToEdit, folders } =
+    useContext(NoteContext);
 
   const [noteTitle, setNoteTitle] = useState("");
   const [noteMessage, setNoteMessage] = useState("");
 
   useEffect(() => {
-    noteToEdit &&
-      setNoteTitle(notes.filter((note) => note.id === noteToEdit)[0].title);
-    noteToEdit &&
-      setNoteMessage(notes.filter((note) => note.id === noteToEdit)[0].message);
+    if (notes && noteToEdit) {
+      // get title & message from the note that was clicked
+      const { title, message } = notes.filter(
+        (note) => note.id === noteToEdit
+      )[0];
+
+      //display title & message
+      setNoteTitle(title);
+      setNoteMessage(message);
+    }
   }, [noteToEdit]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (noteTitle && noteMessage && !noteToEdit) {
-      addNote({ title: noteTitle, message: noteMessage });
+      const newNote = { title: noteTitle, message: noteMessage };
+      addNote(newNote);
     }
     if (noteToEdit) {
-      editNote(noteToEdit, { title: noteTitle, message: noteMessage });
+      const updatedNote = { title: noteTitle, message: noteMessage };
+      editNote(noteToEdit, updatedNote);
     }
 
     setNoteTitle("");

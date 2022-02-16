@@ -12,15 +12,8 @@ import Folder from "./components/Folder/Folder";
 import NoteContext from "./noteapp/NoteContext";
 
 function App() {
-  const {
-    dispatch,
-    showModal,
-    modalContent,
-    fetchData,
-
-    notes,
-    folders,
-  } = useContext(NoteContext);
+  const { dispatch, showModal, modalContent, fetchData, notes, folders } =
+    useContext(NoteContext);
 
   useEffect(() => {
     fetchData();

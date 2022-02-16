@@ -41,6 +41,7 @@ export const NoteProvider = ({ children }) => {
       payload: data,
     });
   };
+
   const editNote = async (id, updNote) => {
     const response = await fetch(`http://localhost:3000/data/${id}`, {
       method: "PUT",
