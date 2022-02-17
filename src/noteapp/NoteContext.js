@@ -14,15 +14,6 @@ export const NoteProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(noteReducer, initialState);
 
-  const deleteNote = async (id) => {
-    await fetch(`http://localhost:3000/data/${id}`, { method: "DELETE" });
-
-    dispatch({
-      type: "DELETE_NOTE",
-      payload: state.notes.filter((note) => note.id !== id),
-    });
-  };
-
   return (
     <NoteContext.Provider
       value={{
@@ -32,7 +23,6 @@ export const NoteProvider = ({ children }) => {
         notes: state.notes,
         noteToEdit: state.noteToEdit,
         folders: state.folders,
-        deleteNote,
         dispatch,
       }}>
       {children}
