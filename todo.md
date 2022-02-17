@@ -1,6 +1,5 @@
 - redesign add note (add folder option)
-- render out folders based on notes
 - add UI showing notes that has the same folder
 - fix/redesign add button
-- add try / catch block to fetch requests
 - fix search notes function
+- add loading state

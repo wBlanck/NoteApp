@@ -24,23 +24,6 @@ export const NoteProvider = ({ children }) => {
     });
   };
 
-  const addNote = async (note) => {
-    console.log("add");
-    const response = await fetch("http://localhost:3000/data", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(note),
-    });
-    const data = await response.json();
-
-    dispatch({
-      type: "ADD_NOTE",
-      payload: data,
-    });
-  };
-
   const editNote = async (id, updNote) => {
     const response = await fetch(`http://localhost:3000/data/${id}`, {
       method: "PUT",
@@ -85,7 +68,6 @@ export const NoteProvider = ({ children }) => {
         folders: state.folders,
         fetchData,
         deleteNote,
-        addNote,
         editNote,
         dispatch,
       }}>
