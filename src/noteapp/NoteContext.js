@@ -14,40 +14,6 @@ export const NoteProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(noteReducer, initialState);
 
-  const fetchData = async () => {
-    const response = await fetch("http://localhost:3000/data");
-    const data = await response.json();
-
-    dispatch({
-      type: "GET_DATA",
-      payload: data,
-    });
-  };
-
-  const editNote = async (id, updNote) => {
-    const response = await fetch(`http://localhost:3000/data/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updNote),
-    });
-
-    const data = await response.json();
-
-    dispatch({
-      type: "EDIT_NOTE",
-      payload: state.notes.map((note) =>
-        note.id === id ? { ...note, ...data } : note
-      ),
-    });
-
-    dispatch({
-      type: "NOTE_TO_EDIT",
-      payload: null,
-    });
-  };
-
   const deleteNote = async (id) => {
     await fetch(`http://localhost:3000/data/${id}`, { method: "DELETE" });
 
@@ -66,9 +32,7 @@ export const NoteProvider = ({ children }) => {
         notes: state.notes,
         noteToEdit: state.noteToEdit,
         folders: state.folders,
-        fetchData,
         deleteNote,
-        editNote,
         dispatch,
       }}>
       {children}

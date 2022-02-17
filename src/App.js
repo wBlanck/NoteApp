@@ -10,13 +10,18 @@ import Modal from "./components/Modal/Modal";
 import Note from "./components/Note/Note";
 import Folder from "./components/Folder/Folder";
 import NoteContext from "./noteapp/NoteContext";
+import { getNotes } from "./noteapp/NoteActions";
 
 function App() {
-  const { dispatch, showModal, modalContent, fetchData, notes, folders } =
+  const { dispatch, showModal, modalContent, notes, folders } =
     useContext(NoteContext);
 
   useEffect(() => {
-    fetchData();
+    const getNotesData = async () => {
+      const notesData = await getNotes();
+      dispatch({ type: "GET_DATA", payload: notesData });
+    };
+    getNotesData();
   }, []);
 
   return (

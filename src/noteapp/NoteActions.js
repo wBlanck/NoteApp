@@ -1,5 +1,4 @@
 export const addNote = async (note) => {
-  console.log("add");
   const response = await fetch("http://localhost:3000/data", {
     method: "POST",
     headers: {
@@ -10,9 +9,25 @@ export const addNote = async (note) => {
   const data = await response.json();
 
   return data;
+};
 
-  /* dispatch({
-    type: "ADD_NOTE",
-    payload: data,
-  }); */
+export const getNotes = async () => {
+  const response = await fetch("http://localhost:3000/data");
+  const data = await response.json();
+
+  return data;
+};
+
+export const editNote = async (id, updNote) => {
+  const response = await fetch(`http://localhost:3000/data/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updNote),
+  });
+
+  const data = await response.json();
+
+  return data;
 };

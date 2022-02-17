@@ -5,10 +5,10 @@ import "./Modal.scss";
 import Button from "../Button/Button";
 import Container from "../Container/Container";
 import NoteContext from "../../noteapp/NoteContext";
-import { addNote } from "../../noteapp/NoteActions";
+import { addNote, editNote } from "../../noteapp/NoteActions";
 
 function Modal({ content }) {
-  const { dispatch, editNote, notes, noteToEdit } = useContext(NoteContext);
+  const { dispatch, notes, noteToEdit } = useContext(NoteContext);
 
   const [noteTitle, setNoteTitle] = useState("");
   const [noteMessage, setNoteMessage] = useState("");
@@ -35,8 +35,22 @@ function Modal({ content }) {
       dispatch({ type: "ADD_NOTE", payload: note });
     }
     if (noteToEdit) {
-      const updatedNote = { title: noteTitle, message: noteMessage };
-      editNote(noteToEdit, updatedNote);
+      const updatedNote = await editNote(noteToEdit, {
+        title: noteTitle,
+        message: noteMessage,
+      });
+
+      console.log();
+      dispatch({
+        type: "EDIT_NOTE",
+        payload: notes.map((note) =>
+          note.id === updatedNote.id ? { ...note, ...updatedNote } : note
+        ),
+      });
+      dispatch({
+        type: "NOTE_TO_EDIT",
+        payload: null,
+      });
     }
 
     setNoteTitle("");
