@@ -30,7 +30,7 @@ function App() {
       <div className={`app-container ${showModal && "slide-out"}`}>
         {/* NOTES */}
         <Container>
-          {!notes && <h2>Add Note...</h2>}
+          {notes.length < 1 && <h2>Add Note...</h2>}
           <div className="notes">
             {notes && notes.map((note) => <Note key={note.id} {...note} />)}
           </div>

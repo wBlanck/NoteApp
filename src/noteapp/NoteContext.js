@@ -17,12 +17,7 @@ export const NoteProvider = ({ children }) => {
   return (
     <NoteContext.Provider
       value={{
-        initialState,
-        modalContent: state.modalContent,
-        showModal: state.showModal,
-        notes: state.notes,
-        noteToEdit: state.noteToEdit,
-        folders: state.folders,
+        ...state,
         dispatch,
       }}>
       {children}
