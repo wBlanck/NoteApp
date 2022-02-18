@@ -8,7 +8,7 @@ import NoteContext from "../../noteapp/NoteContext";
 import { addNote, editNote } from "../../noteapp/NoteActions";
 
 function Modal({ content }) {
-  const { dispatch, notes, noteToEdit } = useContext(NoteContext);
+  const { dispatch, notes, noteToEdit, modalContent } = useContext(NoteContext);
 
   const [noteTitle, setNoteTitle] = useState("");
   const [noteMessage, setNoteMessage] = useState("");
@@ -40,7 +40,6 @@ function Modal({ content }) {
         message: noteMessage,
       });
 
-      console.log();
       dispatch({
         type: "EDIT_NOTE",
         payload: notes.map((note) =>
@@ -53,6 +52,10 @@ function Modal({ content }) {
       });
     }
 
+    closeModal();
+  };
+
+  const closeModal = () => {
     setNoteTitle("");
     setNoteMessage("");
 
@@ -96,7 +99,7 @@ function Modal({ content }) {
                 value={noteMessage}
               />
               <Button type="add" />
-              <Button type="close" />
+              <Button type="close" handleClick={closeModal} />
             </Container>
           </form>
         </div>
@@ -119,7 +122,7 @@ function Modal({ content }) {
                 value={noteMessage}
               />
               <Button type="update" />
-              <Button type="close" />
+              <Button type="close" handleClick={closeModal} />
             </Container>
           </form>
         </div>
