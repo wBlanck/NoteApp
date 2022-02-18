@@ -36,6 +36,7 @@ function Modal({ content }) {
 
       closeModal();
     } else {
+      // ADD CUSTOM ALERT NOTIFICATION HERE
       alert("fill in");
     }
 
