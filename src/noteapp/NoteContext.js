@@ -7,7 +7,7 @@ export const NoteProvider = ({ children }) => {
   const initialState = {
     modalContent: "",
     showModal: false,
-    notes: null,
+    notes: [],
     noteToEdit: null,
     folders: [],
   };
