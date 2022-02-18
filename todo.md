@@ -1,5 +1,6 @@
+- design desktop version
 - redesign add note (add folder option)
-- add UI showing notes that has the same folder
 - fix/redesign add button
+- add UI showing notes that has the same folder
 - fix search notes function
 - add loading state

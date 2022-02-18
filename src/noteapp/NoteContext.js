@@ -5,6 +5,8 @@ const NoteContext = createContext();
 
 export const NoteProvider = ({ children }) => {
   const initialState = {
+    alert: false,
+    loading: false,
     modalContent: "",
     showModal: false,
     notes: [],

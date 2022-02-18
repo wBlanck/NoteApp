@@ -20,7 +20,7 @@ function Modal({ content }) {
         (note) => note.id === noteToEdit
       )[0];
 
-      //display title & message
+      //display title & message from the note that was clicked
       setNoteTitle(title);
       setNoteMessage(message);
     }
@@ -33,7 +33,12 @@ function Modal({ content }) {
       const newNote = { title: noteTitle, message: noteMessage };
       const note = await addNote(newNote);
       dispatch({ type: "ADD_NOTE", payload: note });
+
+      closeModal();
+    } else {
+      alert("fill in");
     }
+
     if (noteToEdit) {
       const updatedNote = await editNote(noteToEdit, {
         title: noteTitle,
@@ -50,9 +55,9 @@ function Modal({ content }) {
         type: "NOTE_TO_EDIT",
         payload: null,
       });
-    }
 
-    closeModal();
+      closeModal();
+    }
   };
 
   const closeModal = () => {
