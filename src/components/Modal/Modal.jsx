@@ -4,8 +4,8 @@ import "./Modal.scss";
 
 import Button from "../Button/Button";
 import Container from "../Container/Container";
-import NoteContext from "../../noteapp/NoteContext";
-import { addNote, editNote } from "../../noteapp/NoteActions";
+import NoteContext from "../../context/noteapp/NoteContext";
+import { addNote, editNote } from "../../context/noteapp/NoteActions";
 
 function Modal({ content }) {
   const { dispatch, notes, noteToEdit, modalContent } = useContext(NoteContext);

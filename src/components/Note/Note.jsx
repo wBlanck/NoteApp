@@ -3,8 +3,8 @@ import React, { useContext } from "react";
 import { BsFillTrashFill } from "react-icons/bs";
 import { AiFillFolder } from "react-icons/ai";
 import { RiFileEditLine } from "react-icons/ri";
-import NoteContext from "../../noteapp/NoteContext";
-import { deleteNote } from "../../noteapp/NoteActions";
+import NoteContext from "../../context/noteapp/NoteContext";
+import { deleteNote } from "../../context/noteapp/NoteActions";
 
 function Note({ id, title }) {
   const { dispatch, notes } = useContext(NoteContext);

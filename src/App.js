@@ -1,4 +1,6 @@
 import { useContext, useEffect } from "react";
+import NoteContext from "./context/noteapp/NoteContext";
+import { getNotes } from "./context/noteapp/NoteActions";
 
 //STYLES
 import "./App.css";
@@ -9,8 +11,6 @@ import Button from "./components/Button/Button";
 import Modal from "./components/Modal/Modal";
 import Note from "./components/Note/Note";
 import Folder from "./components/Folder/Folder";
-import NoteContext from "./noteapp/NoteContext";
-import { getNotes } from "./noteapp/NoteActions";
 
 function App() {
   const { dispatch, showModal, modalContent, notes, folders } =
