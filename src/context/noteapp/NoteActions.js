@@ -32,8 +32,12 @@ export const editNote = async (id, updNote) => {
   return data;
 };
 
-export const searchNotes = () => {
+export const searchNotes = (notes, searchNote) => {
   // SEARCH NOTES. COMBINE getNotes instead??
+
+  return notes.filter((note) => {
+    return note.title.toLowerCase().includes(searchNote.toLowerCase());
+  });
 };
 
 export const deleteNote = async (id) => {

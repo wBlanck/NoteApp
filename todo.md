@@ -1,5 +1,7 @@
 - design desktop version
 - redesign add note ui (add a folder option)
 - add UI showing notes that has the same folder
-- fix add button when scrolling
+- fix the add button when scrolling
 - fix search notes function
+- Set max letters displayed on title to prevent from wrapping
+- research more about APIs

@@ -12,6 +12,7 @@ export const NoteProvider = ({ children }) => {
     notes: [],
     noteToEdit: null,
     searchNote: "",
+    searchedNotes: [],
     folders: [],
   };
 

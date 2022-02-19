@@ -3,7 +3,7 @@ import { useContext } from "react";
 import NoteContext from "../../context/noteapp/NoteContext";
 
 function SearchBar() {
-  const { dispatch, searchNotes } = useContext(NoteContext);
+  const { dispatch, searchNote } = useContext(NoteContext);
 
   /*   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,10 +16,10 @@ function SearchBar() {
         type="text"
         placeholder="Search Notes..."
         className="search-bar"
-        value={searchNotes}
-        onChange={(e) =>
-          dispatch({ type: "SEARCH_NOTES", payload: e.target.value })
-        }
+        value={searchNote}
+        onChange={(e) => {
+          dispatch({ type: "SEARCH_NOTES", payload: e.target.value });
+        }}
       />
     </form>
   );

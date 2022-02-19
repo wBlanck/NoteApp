@@ -27,6 +27,7 @@ const noteReducer = (state, action) => {
       return {
         ...state,
         notes: action.payload,
+        searchNote: "",
       };
     case "DELETE_NOTE":
       return {
@@ -41,7 +42,12 @@ const noteReducer = (state, action) => {
     case "SEARCH_NOTES":
       return {
         ...state,
-        searchNotes: action.payload,
+        searchNote: action.payload,
+      };
+    case "SEARCHED_NOTES":
+      return {
+        ...state,
+        searchedNotes: action.payload,
       };
     case "SET_LOADING":
       return {

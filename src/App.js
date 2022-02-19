@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import NoteContext from "./context/noteapp/NoteContext";
-import { getNotes } from "./context/noteapp/NoteActions";
+import { getNotes, searchNotes } from "./context/noteapp/NoteActions";
 
 //STYLES
 import "./App.css";
@@ -14,8 +14,16 @@ import Folder from "./components/Folder/Folder";
 import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
 
 function App() {
-  const { dispatch, showModal, modalContent, notes, folders, loading } =
-    useContext(NoteContext);
+  const {
+    dispatch,
+    showModal,
+    modalContent,
+    notes,
+    folders,
+    loading,
+    searchNote,
+    searchedNotes,
+  } = useContext(NoteContext);
 
   useEffect(() => {
     const getNotesData = async () => {
@@ -24,7 +32,14 @@ function App() {
       dispatch({ type: "SET_LOADING", payload: false });
     };
     getNotesData();
-  }, []);
+
+    if (searchNote.length > 0) {
+      const test = searchNotes(notes, searchNote);
+      dispatch({ type: "SEARCHED_NOTES", payload: test });
+    } else {
+      dispatch({ type: "SEARCHED_NOTES", payload: [] });
+    }
+  }, [searchNote]);
 
   return (
     <>
@@ -36,7 +51,9 @@ function App() {
 
           {notes.length < 1 && <h2>Add Note...</h2>}
           <div className="notes">
-            {notes && notes.map((note) => <Note key={note.id} {...note} />)}
+            {searchedNotes.length !== 0
+              ? searchedNotes.map((note) => <Note key={note.id} {...note} />)
+              : notes.map((note) => <Note key={note.id} {...note} />)}
           </div>
           <Button
             type="add"
