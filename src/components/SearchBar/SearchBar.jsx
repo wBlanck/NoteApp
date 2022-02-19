@@ -1,22 +1,19 @@
 import "./SearchBar.scss";
 import { useContext } from "react";
-import AppContext from "../../context/noteapp/NoteContext";
+import NoteContext from "../../context/noteapp/NoteContext";
 
 function SearchBar() {
-  const { setModalContent } = useContext(AppContext);
-
-  const slide = () => {
-    document.querySelector(".modal").classList.value =
-      "modal slide-in flex-start";
-    setModalContent("search");
-  };
+  const { dispatch, searchNotes } = useContext(NoteContext);
 
   return (
     <input
       type="text"
       placeholder="Search Notes..."
       className="search-bar"
-      onClick={slide}
+      value={searchNotes}
+      onChange={(e) =>
+        dispatch({ type: "SEARCH_NOTES", payload: e.target.value })
+      }
     />
   );
 }

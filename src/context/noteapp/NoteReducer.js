@@ -38,6 +38,11 @@ const noteReducer = (state, action) => {
         ...state,
         noteToEdit: action.payload,
       };
+    case "SEARCH_NOTES":
+      return {
+        ...state,
+        searchNotes: action.payload,
+      };
 
     default:
       return state;

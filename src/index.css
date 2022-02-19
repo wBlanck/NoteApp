@@ -36,26 +36,8 @@ h1 {
   padding: 15px;
 }
 
-.slide-up-left {
-  transform: translate(-69px, -210px);
-}
-.slide-up-right {
-  transform: translate(69px, -210px);
-}
-.slide-in {
-  transform: translateX(0) !important;
-}
 .slide-out {
   transform: translateX(-120%);
-}
-.flex-start {
-  justify-content: flex-start !important;
-}
-.flex-center {
-  justify-content: center !important;
-}
-.text-center {
-  text-align: center !important;
 }
 
 .icon-folder {
@@ -67,4 +49,7 @@ h1 {
 }
 .icon-trash {
   color: rgb(230 0 0 / 84%);
+}
+
+.loading-spinner {
 }
