@@ -5,16 +5,23 @@ import NoteContext from "../../context/noteapp/NoteContext";
 function SearchBar() {
   const { dispatch, searchNotes } = useContext(NoteContext);
 
+  /*   const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("submitted");
+  };
+ */
   return (
-    <input
-      type="text"
-      placeholder="Search Notes..."
-      className="search-bar"
-      value={searchNotes}
-      onChange={(e) =>
-        dispatch({ type: "SEARCH_NOTES", payload: e.target.value })
-      }
-    />
+    <form>
+      <input
+        type="text"
+        placeholder="Search Notes..."
+        className="search-bar"
+        value={searchNotes}
+        onChange={(e) =>
+          dispatch({ type: "SEARCH_NOTES", payload: e.target.value })
+        }
+      />
+    </form>
   );
 }
 

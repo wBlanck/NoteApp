@@ -11,6 +11,7 @@ export const NoteProvider = ({ children }) => {
     showModal: false,
     notes: [],
     noteToEdit: null,
+    searchNote: "",
     folders: [],
   };
 

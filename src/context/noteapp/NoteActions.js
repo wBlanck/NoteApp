@@ -32,6 +32,10 @@ export const editNote = async (id, updNote) => {
   return data;
 };
 
+export const searchNotes = () => {
+  // SEARCH NOTES. COMBINE getNotes instead??
+};
+
 export const deleteNote = async (id) => {
   await fetch(`http://localhost:3000/data/${id}`, { method: "DELETE" });
 };
