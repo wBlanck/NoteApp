@@ -11,6 +11,7 @@ import Button from "./components/Button/Button";
 import Modal from "./components/Modal/Modal";
 import Note from "./components/Note/Note";
 import Folder from "./components/Folder/Folder";
+import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
 
 function App() {
   const { dispatch, showModal, modalContent, notes, folders } =
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <>
+      <LoadingSpinner />
       <h1>Notes</h1>
       <div className={`app-container ${showModal && "slide-out"}`}>
         {/* NOTES */}
