@@ -6,9 +6,10 @@ import Button from "../Button/Button";
 import Container from "../Container/Container";
 import NoteContext from "../../context/noteapp/NoteContext";
 import { addNote, editNote } from "../../context/noteapp/NoteActions";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 function Modal({ content }) {
-  const { dispatch, notes, noteToEdit, modalContent } = useContext(NoteContext);
+  const { dispatch, notes, noteToEdit, loading } = useContext(NoteContext);
 
   const [noteTitle, setNoteTitle] = useState("");
   const [noteMessage, setNoteMessage] = useState("");
@@ -30,22 +31,25 @@ function Modal({ content }) {
     e.preventDefault();
 
     if (noteTitle && noteMessage && !noteToEdit) {
-      const newNote = { title: noteTitle, message: noteMessage };
-      const note = await addNote(newNote);
+      dispatch({ type: "SET_LOADING", payload: true });
+      const note = await addNote({ title: noteTitle, message: noteMessage });
+
+      dispatch({ type: "SET_LOADING", payload: false });
       dispatch({ type: "ADD_NOTE", payload: note });
 
       closeModal();
-    } else {
+    } else if (!noteToEdit) {
       // ADD CUSTOM ALERT NOTIFICATION HERE
       alert("fill in");
     }
 
     if (noteToEdit) {
+      dispatch({ type: "SET_LOADING", payload: true });
       const updatedNote = await editNote(noteToEdit, {
         title: noteTitle,
         message: noteMessage,
       });
-
+      dispatch({ type: "SET_LOADING", payload: false });
       dispatch({
         type: "EDIT_NOTE",
         payload: notes.map((note) =>
@@ -90,6 +94,7 @@ function Modal({ content }) {
     case "addNote":
       return (
         <div className={`modal add-note`}>
+          {loading && <LoadingSpinner />}
           <form onSubmit={handleSubmit}>
             <input
               type="text"
@@ -113,6 +118,7 @@ function Modal({ content }) {
     case "editNote":
       return (
         <div className={`modal add-note`}>
+          {loading && <LoadingSpinner />}
           <form onSubmit={handleSubmit}>
             <input
               type="text"

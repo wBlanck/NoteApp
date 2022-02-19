@@ -14,24 +14,26 @@ import Folder from "./components/Folder/Folder";
 import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
 
 function App() {
-  const { dispatch, showModal, modalContent, notes, folders } =
+  const { dispatch, showModal, modalContent, notes, folders, loading } =
     useContext(NoteContext);
 
   useEffect(() => {
     const getNotesData = async () => {
       const notesData = await getNotes();
       dispatch({ type: "GET_DATA", payload: notesData });
+      dispatch({ type: "SET_LOADING", payload: false });
     };
     getNotesData();
   }, []);
 
   return (
     <>
-      <LoadingSpinner />
       <h1>Notes</h1>
       <div className={`app-container ${showModal && "slide-out"}`}>
         {/* NOTES */}
         <Container>
+          {loading && <LoadingSpinner />}
+
           {notes.length < 1 && <h2>Add Note...</h2>}
           <div className="notes">
             {notes && notes.map((note) => <Note key={note.id} {...note} />)}
