@@ -1,5 +1,5 @@
 export const addNote = async (note) => {
-  const response = await fetch("http://localhost:3000/data", {
+  const response = await fetch("http://localhost:5000/data", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -12,14 +12,14 @@ export const addNote = async (note) => {
 };
 
 export const getNotes = async () => {
-  const response = await fetch("http://localhost:3000/data");
+  const response = await fetch("http://localhost:5000/data");
   const data = await response.json();
 
   return data;
 };
 
 export const editNote = async (id, updNote) => {
-  const response = await fetch(`http://localhost:3000/data/${id}`, {
+  const response = await fetch(`http://localhost:5000/data/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -41,5 +41,5 @@ export const searchNotes = (notes, searchNote) => {
 };
 
 export const deleteNote = async (id) => {
-  await fetch(`http://localhost:3000/data/${id}`, { method: "DELETE" });
+  await fetch(`http://localhost:5000/data/${id}`, { method: "DELETE" });
 };
