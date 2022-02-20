@@ -28,6 +28,7 @@ function App() {
   useEffect(() => {
     const getNotesData = async () => {
       const notesData = await getNotes();
+
       dispatch({ type: "GET_DATA", payload: notesData });
       dispatch({ type: "SET_LOADING", payload: false });
     };

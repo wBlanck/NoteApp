@@ -4,3 +4,4 @@
 - fix the add button when scrolling
 - Set max letters displayed on title to prevent from wrapping
 - research more about APIs
+- store in localStorage? or database?
